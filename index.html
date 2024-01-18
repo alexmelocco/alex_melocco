@@ -3,12 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Alex's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quasi exercitationem quaerat mollitia nobis earum quis itaque optio pariatur, error esse corporis neque eaque, saepe quia ipsam consectetur possimus animi.</p>
-    <p>blud is not updating cuh</p>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <!-- <img src="images/Alex Melocco-logos_white.png" class="logo"> -->
+                <img src="images/Alex Melocco-logos crop.jpeg" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="#">Project Portfolio</a></li>
+                    <li><a href="#">Contact me</a></li>
+
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Software engineer | Student</p>
+                <h1>Hi, I'm <span>Alex</span> currently studying <br> software engineering and law <br> at UNSW</h1>
+            </div>
+        </div>
+    </div>
+<!-- ------------about------------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/hello.png" class="headshot">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At saepe delectus aut incidunt quisquam nam rerum qui perferendis veritatis architecto consectetur animi ipsam, beatae ullam repellendus excepturi! Aut, autem iure?</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI?UX</span><br>Designing ML models</li>
+                            <li><span>Web Development</span><br>Big websites</li>
+                            <li><span>AI models</span><br>Designing ML models</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>UNSW</span><br>Designing ML models</li>
+                            <li><span>Knox</span><br>Big websites</li>
+                            <li><span>HOol mf boola</span><br>Designing ML models</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2016</span><br>BAB</li>
+                            <li><span>2016</span><br>Sook</li>
+                            <li><span>2020</span><br>Blah</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+        
+        function opentab(tabname) {
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link")
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
 </body>
 </html>
