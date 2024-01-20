@@ -136,7 +136,7 @@ nav ul li a:hover::after{
 /* } */
 
 .about-col-1{
-    flex-basis: 35%
+    flex-basis: 35%;
 }
 
 .about-col-1 img{
@@ -147,8 +147,6 @@ nav ul li a:hover::after{
 .about-col-2{
     flex-basis: 60%;
 }
-
-
 
 
 .sub-title{
