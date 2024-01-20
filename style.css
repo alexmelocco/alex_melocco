@@ -20,6 +20,9 @@ body{
     background-image: url(images/supercompressedenactus-1.jpeg);
     background-size: cover;
     background-position: center;
+    
+    position: relative;
+    background-attachment: fixed;
 }
 
 
