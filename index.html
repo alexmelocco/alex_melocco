@@ -231,6 +231,27 @@
         })
     </script>
 
+    <!-- There is a bug in ios where background-attachment: fixed breaks, idky, but this is a dynamic fix  -->
+    <script>
+        // Function to check if the user is using an iOS device
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        // Function to handle specific changes for iOS
+        function handleIOSChanges() {
+            // Modify the CSS for the #header element
+            var headerElement = document.getElementById('header');
+            if (headerElement) {
+                headerElement.style.backgroundAttachment = 'scroll';
+            }
+        }
+
+        // Check if the user is using an iOS device and apply changes if true
+        if (isIOS()) {
+            handleIOSChanges();
+        }
+    </script>
 
 </body>
 </html>
