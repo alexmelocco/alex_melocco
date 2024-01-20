@@ -446,6 +446,8 @@ nav .fa-solid{
 /* @media only screen and (max-width: 600px) and (orientation: portrait) { */
     #header{
         background-image: url(images/phone-background-1.jpg);
+        background-attachment: fixed;
+        background-size: cover;
     }
     .header-text{
         margin-top: 100%;
