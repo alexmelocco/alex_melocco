@@ -22,7 +22,8 @@ body{
     background-position: center;
     
     /* position: relative; */
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 
@@ -97,10 +98,25 @@ nav ul li a:hover::after{
 .header-text h1{
     font-size: 50px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .header-text h1 span{
     color: #ffffff;
+}
+
+.header-text h3{
+    margin-top: 20px;
+}
+
+
+.disclaimer{
+    text-decoration: none;
+    color: #40E0D0;
+}
+
+.link-text{
+    color: #b445ff;
 }
 
 
@@ -131,6 +147,9 @@ nav ul li a:hover::after{
 .about-col-2{
     flex-basis: 60%;
 }
+
+
+
 
 .sub-title{
     font-size: 60px;
