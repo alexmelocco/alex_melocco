@@ -5,6 +5,6 @@ This repo contains a collection of large-scale personal projects I undertook eit
 - To hone my skills
 - Amongst other reasons
 
-Please find the featured projects listed below
+Please find the featured projects listed below. All listed should have a file in the main repository.
 
 # Projects
