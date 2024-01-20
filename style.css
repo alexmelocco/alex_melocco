@@ -22,7 +22,7 @@ body{
     background-position: center;
     
     /* position: relative; */
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 
@@ -431,7 +431,7 @@ nav .fa-solid{
     .header-text{
         margin-top: 100%;
         font-size: 16px;
-        margin-top: 200px;
+        margin-top: 160px;
     }
     .header-text h1{
         font-size: 30px;
