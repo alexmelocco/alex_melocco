@@ -5,3 +5,6 @@ This repo contains a collection of large-scale personal projects I undertook eit
 - To hone my skills
 - Amongst other reasons
 
+Please find the featured projects listed below
+
+# Projects
