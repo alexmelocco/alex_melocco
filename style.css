@@ -402,6 +402,7 @@ form .btn2{
 /* @media only screen and (max-width: 600px) and (orientation: portrait) { */
     #header{
         background-image: url(images/phone-background-1.jpg);
+        overflow: hidden;
     }
 }
 
