@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background: #080800;
     color: #fff;
@@ -18,9 +22,15 @@ body{
     background-position: center;
 }
 
+
+
 .container{
     padding: 10px 10%;
 
+}
+
+p{
+    line-height: 1.5;;
 }
 
 nav{
@@ -50,6 +60,14 @@ nav ul li a{
     text-decoration: none;
     font-size: 18px;
     position: relative;
+}
+
+.githublink{
+    color: #daa5fe;
+}
+
+.githublink::after{
+    background: #c66fff;
 }
 
 nav ul li a::after{
@@ -366,6 +384,7 @@ nav ul li a:hover::after{
 
 }
 
+
 form input, form textarea{
     width: 100%;
     border: 0;
@@ -448,6 +467,44 @@ nav .fa-solid{
         cursor: pointer;
         
     }
+    .sub-title{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2 {
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+
+    .about-col-2{
+        font-size: 14px;
+    }
+
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+
+    .footer{
+        font-size: 14px;
+
+    }
+
+    .githublink{
+        color: #ae34ff;
+    }
+}
+
+#msg{
+    color: #61b752;
+    margin-top: -10px;
+    display: block;
+    transition: 0.3s;
 }
 
 /* Style for landscape phone */

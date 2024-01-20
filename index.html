@@ -14,11 +14,11 @@
                 <!-- <img src="images/Alex Melocco-logos_white.png" class="logo"> -->
                 <img src="images/Alex Melocco-logos crop.jpeg" class="logo">
                 <ul id="sidemenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About me</a></li>
-                    <li><a href="#">Project Portfolio</a></li>
-                    <li><a href="#">Github repo</a></li>
-                    <li><a href="#">Contact me</a></li>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#portfolio">Project Portfolio</a></li>
+                    <li><a href="#contact">Contact me</a></li>
+                    <li><a href="https://github.com/alexmelocco/alex_melocco" class="githublink" target="_blank">Github repo</a></li>
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
                 <i id="menu_bars" class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -32,7 +32,7 @@
 <!-- ------------about------------- -->
     <div id="about">
         <div class="container">
-            <div class="row">s
+            <div class="row">
                 <div class="about-col-1">
                     <img src="images/hello.png" class="headshot">
                 </div>
@@ -153,18 +153,19 @@
                     <a href="images/Resume – Alexander J Melocco.pdf" download class="btn btn2">Download Resume PDF</a>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>                        
-                        <button type="submit" class="btn btn2">Submit</button>
+                        <button id="colour_button" type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
             
         </div>
         <div class="footer">
-            <p>Alex Melocco - Contact me | alexjmelocco@gmail.com | 0414 109 645</p>
+            <p>Designed by Alex Melocco</p>
         </div>
     </div>
 
@@ -198,5 +199,30 @@
             menu_bar.style.display = "block";
         }
     </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxnvkJ8dMQSqMljBUpN27A3xtX5ZwF1bIJfBNKaG25cycDVNCKbgpzw16OW1OYg8iAt/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+        const button = document.getElementById("colour_button")
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          button.style.background="#ae34ff"
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Thank you for your message"
+                button.style.background="#11ceebe2"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+                button.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
 </body>
 </html>
