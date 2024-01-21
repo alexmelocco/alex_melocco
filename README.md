@@ -5,16 +5,7 @@ Please find the featured projects listed below. All listed should have a file in
 
 # Projects
 
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
-```diff
 ## Custom Handwritten Digit Recognition Neural Network
-```
 
 Implemented a HDR algorithm in python without the use of libaries such as Tensorflow or Pytorch. Independently researched and designed a custom, vectorised dense-layer type neural network architecture.
 
@@ -24,11 +15,15 @@ Motivations for project - wanted to better understand the underlying operations 
 
 Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen test examples).
 
+
+
 ## CURRENTLY IN DEVELOPMENT - Movie reccomendation system - Collaborative Filtering algorithm
 
 Implementing in Tensorflow. Currently trained on a dataset of 2.6 million training examples.
 
 Current progress can still be viewed in main repo
+
+
 
 
 ## Client/server messaging and streaming service (backend networking)
@@ -40,11 +35,15 @@ Motivations for project - Interested with inner workings of messaging services a
 Currently implemented within the terminal, future motivations to implement of frontend for this program.
 
 
+
+
 ## Typscript browser discord-type messaging service
 
 This was a 2 man team project where i wrote the backend of the discord/skype type messaging program. I was in charge of designing and implementing the backend. Used this applicaton to really focus on the refining my skills in applying design (ACID) principles.
 
 I implemented this using Node.js in the Express.js web sframework. It handles various API endpoints for user authentication, channel management, message handling, and more. The code demonstrates a modular structure, with organized route handlers, middleware usage, and integration with a database for data processing."
+
+
 
 
 ## Dungeon RPG java game
