@@ -13,4 +13,4 @@ The design is modular, such that the framework can be used to create any neural 
 
 Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley. This hopefully increases my perception in debugging and all aspects of ML
 
-Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen examples).
+Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen test examples).
