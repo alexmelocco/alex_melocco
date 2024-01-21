@@ -5,7 +5,13 @@ Please find the featured projects listed below. All listed should have a file in
 
 # Projects
 
-<sub><sup><span style="color:red">This is a colored subtitle</span></sup></sub>
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 
 ## Custom Handwritten Digit Recognition Neural Network
   
