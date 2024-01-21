@@ -13,7 +13,7 @@ Please find the featured projects listed below. All listed should have a file in
 @@ text in purple (and bold)@@
 ```
 
-## Custom Handwritten Digit Recognition Neural Network
+## @@ Custom Handwritten Digit Recognition Neural Network @@
   
 Implemented a HDR algorithm in python without the use of libaries such as Tensorflow or Pytorch. Independently researched and designed a custom, vectorised dense-layer type neural network architecture.
 
