@@ -16,7 +16,7 @@ Motivations for project - wanted to better understand the underlying operations 
 Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen test examples).
 
 
-# [Lunar Lander Reinforcement Learning Algorithm](https://github.com/alexmelocco/alex_melocco/tree/main/LunarLanderAI)
+## [Lunar Lander Reinforcement Learning Algorithm](https://github.com/alexmelocco/alex_melocco/tree/main/LunarLanderAI)
 
 Currently in development
 
