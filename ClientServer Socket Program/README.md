@@ -9,3 +9,6 @@ Currently implemented within the terminal, future motivations to implement of fr
 See [Server.py](server.py) and [Client.py](client.py) for the two programs.
 
 Note: all of the other accompanying files are either logs generated in testing (the server has a logging system) or video files (to test UDP transfer of videO)
+
+Logging in:
+Please enter login information into [Credentials.txt](credentials.txt). The format is pretty self evident.
