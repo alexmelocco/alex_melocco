@@ -5,7 +5,7 @@ Implementing a custom handwrittendigit recognition algorithm in python without t
 - Everything is custom - no functions borrowed from external sources (except MNIST data loader and data displayer)
 
 
-![UML Diagram](UML diagram - HDR.png)
+![UML Diagram](UML.png)
 
 Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley
 - This hopefully increases my perception in debugging and all aspects of ML
