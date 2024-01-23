@@ -1,0 +1,32 @@
+Rough Creation Plan (DONE) - here just for reference (can ignore)
+1. Data retrieval (DONE)
+    - Download the MNIST dataset or another dataset containing images of handwritten digits (0-9).
+    - Familiarize yourself with the dataset structure, including training and testing sets.
+2. Data preprocessing (DONE)
+    - Normalize pixel values to a range between 0 and 1 for better convergence.
+    - Flatten the images into 1D arrays or keep them as 2D arrays, depending on your network architecture.
+3. Neural Netowrk Architecture (DONE)
+    - Define the architecture of your neural network, including the number of layers, neurons in each layer, and activation functions.
+    - Initialize weights and biases for each layer.
+4. Activation Functions (DONE)
+    - Implement activation functions such as ReLU for hidden layers and softmax for the output layer.
+5. Forward Propogation (DONE)
+    - Write code for the forward propagation step, computing the output of each layer given the input data.
+6. Loss Functions (DONE)
+    - Choose an appropriate loss function for multi-class classification, such as cross-entropy loss.
+7. Back Prop (DONE)
+    - Implement backpropagation to compute gradients of the loss with respect to weights and biases.
+    - Update weights and biases using gradient descent or another optimization algorithm.
+8. Training Loop (DONE)
+    - Iterate through the training data in batches.
+    - Perform forward and backward passes for each batch.
+    - Update parameters based on gradients.
+9. Validation and Testing (DONE)
+    - Use a seperate validation set to monitor the model's performance during training
+    - Evaluate the trained model on a test set to assess its generalization
+10. Hyperparameter Tuning (DONE)
+    - Experiment with hyperparameters such as learning rate, batch size, and the number of hidden units to optimize performance
+11. visualization
+    - Visualize the training process such as a learning curve and accuracy over epochs
+12. Intference (DONE)
+    - Use the trained model to make predictions on new, unseen data
