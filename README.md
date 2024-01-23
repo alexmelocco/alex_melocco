@@ -1,7 +1,7 @@
 # Personal Projects Repository - Alex Melocco
 This repo contains a collection of personal projects I have undertaken. (Click titles for link)
 
-Please find the featured projects listed below. All listed should have a file in the main repository. (in order of latest-oldest)
+Please find the featured projects listed below. All listed should have a file in the main repository. (in no particular order)
 
 # Projects
 
