@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ZombieToast.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.enemies</a> &gt; <span class="el_source">ZombieToast.java</span></div><h1>ZombieToast.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.enemies;
+
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import dungeonmania.Game;
+import dungeonmania.entities.collectables.potions.InvincibilityPotion;
+import dungeonmania.entities.enemies.MoveStrat.InvincibilityMovementStrategy;
+import dungeonmania.entities.enemies.MoveStrat.MovementStrategy;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Position;
+
+public class ZombieToast extends Enemy {
+    public static final double DEFAULT_HEALTH = 5.0;
+    public static final double DEFAULT_ATTACK = 6.0;
+<span class="fc" id="L17">    private Random randGen = new Random();</span>
+
+    public ZombieToast(Position position, double health, double attack) {
+<span class="fc" id="L20">        super(position, health, attack);</span>
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public void move(Game game) {
+        Position nextPos;
+<span class="fc" id="L26">        GameMap map = game.getMap();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (map.getPlayer().getEffectivePotion() instanceof InvincibilityPotion) {</span>
+<span class="fc" id="L28">            MovementStrategy movementStrategy = new InvincibilityMovementStrategy();</span>
+<span class="fc" id="L29">            movementStrategy.move(game, this);</span>
+<span class="fc" id="L30">        } else {</span>
+<span class="fc" id="L31">            List&lt;Position&gt; pos = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc" id="L32">            pos = pos.stream().filter(p -&gt; map.canMoveTo(this, p)).collect(Collectors.toList());</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">            if (pos.size() == 0) {</span>
+<span class="fc" id="L34">                nextPos = getPosition();</span>
+            } else {
+<span class="fc" id="L36">                nextPos = pos.get(randGen.nextInt(pos.size()));</span>
+            }
+<span class="fc" id="L38">            game.getMap().moveTo(this, nextPos);</span>
+        }
+<span class="fc" id="L40">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

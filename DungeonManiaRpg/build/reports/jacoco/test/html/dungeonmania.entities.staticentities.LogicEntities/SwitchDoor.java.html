@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SwitchDoor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.staticentities.LogicEntities</a> &gt; <span class="el_source">SwitchDoor.java</span></div><h1>SwitchDoor.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.staticentities.LogicEntities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dungeonmania.LogicEnum;
+import dungeonmania.entities.Entity;
+import dungeonmania.entities.enemies.Spider;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Position;
+
+public class SwitchDoor extends LogicEntity {
+<span class="nc" id="L13">    private boolean open = false;</span>
+    private LogicEnum logic;
+    private List&lt;Boolean&gt; history;
+
+    public SwitchDoor(Position position, LogicEnum logic) {
+<span class="nc" id="L18">        super(position.asLayer(Entity.DOOR_LAYER));</span>
+<span class="nc" id="L19">        this.logic = logic;</span>
+<span class="nc" id="L20">        this.history = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L21">    }</span>
+
+    // cahnage the bottom from hasKey, to is open
+    @Override
+    public boolean canMoveOnto(GameMap map, Entity entity) {
+<span class="nc bnc" id="L26" title="All 4 branches missed.">        if (open || entity instanceof Spider) {</span>
+<span class="nc" id="L27">            return true;</span>
+        }
+<span class="nc" id="L29">        return false;</span>
+    }
+
+    public boolean isOpen() {
+<span class="nc" id="L33">        return open;</span>
+    }
+
+    public void open() {
+<span class="nc" id="L37">        open = true;</span>
+<span class="nc" id="L38">    }</span>
+
+    public void status(boolean bool) {
+<span class="nc" id="L41">        open = bool;</span>
+<span class="nc" id="L42">    }</span>
+
+    @Override
+    public void tickUpdate(GameMap map) {
+<span class="nc" id="L46">        List&lt;Position&gt; adjPosList = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="nc" id="L47">        List&lt;Boolean&gt; booleanList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        for (Position adjPos : adjPosList) {</span>
+<span class="nc" id="L50">            booleanList.addAll(super.tickUpdate(map, map.getEntities(adjPos)));</span>
+<span class="nc" id="L51">        }</span>
+
+        // if booleanList includes true then turn on
+        // status(booleanList.contains(true));
+<span class="nc" id="L55">        status(LogicProcessor.processBooleanList(logic, booleanList, history, open));</span>
+<span class="nc" id="L56">        history = booleanList;</span>
+<span class="nc" id="L57">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

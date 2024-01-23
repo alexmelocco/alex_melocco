@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LightBulb.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.staticentities.LogicEntities</a> &gt; <span class="el_source">LightBulb.java</span></div><h1>LightBulb.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.staticentities.LogicEntities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dungeonmania.LogicEnum;
+import dungeonmania.entities.Entity;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Position;
+
+public class LightBulb extends LogicEntity {
+<span class="fc" id="L12">    private boolean status = false;</span>
+    private LogicEnum logic;
+    private List&lt;Boolean&gt; history;
+
+    public LightBulb(Position position, LogicEnum logic) {
+<span class="fc" id="L17">        super(position.asLayer(Entity.ITEM_LAYER));</span>
+<span class="fc" id="L18">        this.logic = logic;</span>
+<span class="fc" id="L19">        this.history = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L20">    }</span>
+
+    public void status(boolean bool) {
+<span class="fc" id="L23">        status = bool;</span>
+<span class="fc" id="L24">    }</span>
+
+    // Lightbulbs can be move to by entities, except boulders
+    @Override
+    public boolean canMoveOnto(GameMap map, Entity entity) {
+<span class="fc" id="L29">        return true;</span>
+    }
+
+    public boolean isOn() {
+<span class="fc" id="L33">        return status;</span>
+    }
+
+    @Override
+    public void tickUpdate(GameMap map) {
+<span class="fc" id="L38">        List&lt;Position&gt; adjPosList = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc" id="L39">        List&lt;Boolean&gt; booleanList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Position adjPos : adjPosList) {</span>
+<span class="fc" id="L42">            booleanList.addAll(super.tickUpdate(map, map.getEntities(adjPos)));</span>
+<span class="fc" id="L43">        }</span>
+
+        // if booleanList includes true then turn on
+        // status(booleanList.contains(true));
+<span class="fc" id="L47">        status(LogicProcessor.processBooleanList(logic, booleanList, history, status));</span>
+<span class="fc" id="L48">        history = booleanList;</span>
+<span class="fc" id="L49">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

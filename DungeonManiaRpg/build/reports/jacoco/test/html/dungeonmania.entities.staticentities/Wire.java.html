@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Wire.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.staticentities</a> &gt; <span class="el_source">Wire.java</span></div><h1>Wire.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.staticentities;
+
+import java.util.List;
+
+import dungeonmania.entities.Entity;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Position;
+
+public class Wire extends StaticEntity {
+<span class="fc" id="L10">    private boolean activated = false;</span>
+
+    public Wire(Position position) {
+<span class="fc" id="L13">        super(position.asLayer(Entity.ITEM_LAYER));</span>
+<span class="fc" id="L14">    }</span>
+
+    public boolean isActivated() {
+<span class="fc" id="L17">        return activated;</span>
+    }
+
+    /*
+     * Only update if activated = false, and newStatus = true
+     */
+    public void updateLogicStatus(boolean newStatus, GameMap map) {
+<span class="pc bpc" id="L24" title="1 of 4 branches missed.">        if (activated != newStatus &amp;&amp; newStatus) {</span>
+<span class="fc" id="L25">            activated = newStatus;</span>
+<span class="fc" id="L26">            notifyAdjacent(map);</span>
+        }
+<span class="fc" id="L28">    }</span>
+
+    @Override
+    public boolean canMoveOnto(GameMap map, Entity entity) {
+<span class="fc" id="L32">        return true;</span>
+    }
+
+    private void notifyAdjacent(GameMap map) {
+<span class="fc" id="L36">        List&lt;Position&gt; adjPosList = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (Position adjPos : adjPosList) {</span>
+<span class="fc" id="L38">            notifyAdjacent(map, map.getEntities(adjPos));</span>
+
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">    }</span>
+
+    private void notifyAdjacent(GameMap map, List&lt;Entity&gt; entities) {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (Entity entity : entities) {</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            if (entity instanceof Wire) {</span>
+<span class="fc" id="L46">                Wire wire = (Wire) entity;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                if (!wire.isActivated()) {</span>
+<span class="fc" id="L48">                    wire.updateLogicStatus(activated, map);</span>
+                }
+            }
+<span class="fc" id="L51">        }</span>
+<span class="fc" id="L52">    }</span>
+
+    public void tickReset() {
+<span class="fc" id="L55">        activated = false;</span>
+<span class="fc" id="L56">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

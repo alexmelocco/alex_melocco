@@ -1,0 +1,113 @@
+{
+    "entities": [
+        {
+            "type": "player",
+            "x": 3,
+            "y": 1
+        },
+        {
+            "type": "zombie_toast",
+            "x": 1,
+            "y": 1
+        },
+        {
+            "type": "wall",
+            "x": 0,
+            "y": 1
+        },
+        {
+            "type": "wall",
+            "x": 1,
+            "y": 0
+        },
+        {
+            "type": "wall",
+            "x": 2,
+            "y": 0
+        },
+        {
+            "type": "wall",
+            "x": 3,
+            "y": 0
+        },
+        {
+            "type": "wall",
+            "x": 4,
+            "y": 0
+        },
+        {
+            "type": "wall",
+            "x": 5,
+            "y": 0
+        },
+        {
+            "type": "wall",
+            "x": 6,
+            "y": 1
+        },
+        {
+            "type": "wall",
+            "x": 1,
+            "y": 2
+        },
+        {
+            "type": "wall",
+            "x": 2,
+            "y": 2
+        },
+        {
+            "type": "wall",
+            "x": 3,
+            "y": 2
+        },
+        {
+            "type": "wall",
+            "x": 4,
+            "y": 2
+        },
+        {
+            "type": "wall",
+            "x": 5,
+            "y": 2
+        },
+        {
+            "type": "treasure",
+            "x": 4,
+            "y": 1
+        },
+        {
+            "type": "wall",
+            "x": 6,
+            "y": 1
+        },
+        {
+            "type": "exit",
+            "x": 5,
+            "y": 1
+        },
+        {
+            "type": "zombie_toast",
+            "x": 10,
+            "y": 10
+        }
+    ],
+    "goal-condition": {
+        "goal": "AND",
+        "subgoals": [
+            {
+                "goal": "enemy"
+            },
+            {
+                "goal": "AND",
+                "subgoals": [
+                    {
+                        "goal": "exit"
+                    },
+                    {
+                        "goal": "treasure"
+                    }
+                ]
+            }
+        ]
+    }
+}

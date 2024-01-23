@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntityFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities</a> &gt; <span class="el_source">EntityFactory.java</span></div><h1>EntityFactory.java</h1><pre class="source lang-java linenums">package dungeonmania.entities;
+
+import dungeonmania.Game;
+import dungeonmania.LogicEnum;
+import dungeonmania.entities.buildables.Bow;
+import dungeonmania.entities.buildables.MidnightArmour;
+import dungeonmania.entities.buildables.Sceptre;
+import dungeonmania.entities.buildables.Shield;
+import dungeonmania.entities.collectables.*;
+import dungeonmania.entities.collectables.Treasure.SunStone;
+import dungeonmania.entities.collectables.Treasure.Treasure;
+import dungeonmania.entities.enemies.*;
+import dungeonmania.entities.staticentities.*;
+import dungeonmania.entities.staticentities.LogicEntities.LightBulb;
+import dungeonmania.entities.staticentities.LogicEntities.SwitchDoor;
+import dungeonmania.map.GameMap;
+import dungeonmania.entities.collectables.potions.InvincibilityPotion;
+import dungeonmania.entities.collectables.potions.InvisibilityPotion;
+import dungeonmania.entities.collectables.potions.PotionFactory;
+import dungeonmania.entities.collectables.potions.PotionType;
+import dungeonmania.util.Position;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import org.json.JSONObject;
+
+public class EntityFactory {
+    private JSONObject config;
+<span class="fc" id="L32">    private Random ranGen = new Random();</span>
+
+<span class="fc" id="L34">    public EntityFactory(JSONObject config) {</span>
+<span class="fc" id="L35">        this.config = config;</span>
+<span class="fc" id="L36">    }</span>
+
+    public Entity createEntity(JSONObject jsonEntity) {
+<span class="fc" id="L39">        return constructEntity(jsonEntity, config);</span>
+    }
+
+    public void spawnSpider(Game game) {
+<span class="fc" id="L43">        GameMap map = game.getMap();</span>
+<span class="fc" id="L44">        int tick = game.getTick();</span>
+<span class="fc" id="L45">        int rate = config.optInt(&quot;spider_spawn_interval&quot;, 0);</span>
+<span class="fc bfc" id="L46" title="All 4 branches covered.">        if (rate == 0 || (tick + 1) % rate != 0)</span>
+<span class="fc" id="L47">            return;</span>
+<span class="fc" id="L48">        int radius = 20;</span>
+<span class="fc" id="L49">        Position player = map.getPlayer().getPosition();</span>
+
+<span class="fc" id="L51">        Spider dummySpider = buildSpider(new Position(0, 0)); // for checking possible positions</span>
+
+<span class="fc" id="L53">        List&lt;Position&gt; availablePos = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (int i = player.getX() - radius; i &lt; player.getX() + radius; i++) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            for (int j = player.getY() - radius; j &lt; player.getY() + radius; j++) {</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">                if (Position.calculatePositionBetween(player, new Position(i, j)).magnitude() &gt; radius)</span>
+<span class="fc" id="L57">                    continue;</span>
+<span class="fc" id="L58">                Position np = new Position(i, j);</span>
+<span class="fc bfc" id="L59" title="All 4 branches covered.">                if (!map.canMoveTo(dummySpider, np) || np.equals(player))</span>
+<span class="fc" id="L60">                    continue;</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">                if (map.getEntities(np).stream().anyMatch(e -&gt; e instanceof Enemy))</span>
+<span class="nc" id="L62">                    continue;</span>
+<span class="fc" id="L63">                availablePos.add(np);</span>
+            }
+        }
+<span class="fc" id="L66">        Position initPosition = availablePos.get(ranGen.nextInt(availablePos.size()));</span>
+<span class="fc" id="L67">        Spider spider = buildSpider(initPosition);</span>
+<span class="fc" id="L68">        map.addEntity(spider);</span>
+<span class="fc" id="L69">        game.register(() -&gt; spider.move(game), Game.AI_MOVEMENT, spider.getId());</span>
+<span class="fc" id="L70">    }</span>
+
+    public void spawnZombie(Game game, ZombieToastSpawner spawner) {
+<span class="fc" id="L73">        GameMap map = game.getMap();</span>
+<span class="fc" id="L74">        int tick = game.getTick();</span>
+<span class="fc" id="L75">        Random randGen = new Random();</span>
+<span class="fc" id="L76">        int spawnInterval = config.optInt(&quot;zombie_spawn_interval&quot;, ZombieToastSpawner.DEFAULT_SPAWN_INTERVAL);</span>
+<span class="fc bfc" id="L77" title="All 4 branches covered.">        if (spawnInterval == 0 || (tick + 1) % spawnInterval != 0)</span>
+<span class="fc" id="L78">            return;</span>
+<span class="fc" id="L79">        List&lt;Position&gt; pos = spawner.getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        pos = pos.stream().filter(p -&gt; !map.getEntities(p).stream().anyMatch(e -&gt; (e instanceof Wall)))</span>
+<span class="fc" id="L81">                .collect(Collectors.toList());</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        if (pos.size() == 0)</span>
+<span class="fc" id="L83">            return;</span>
+<span class="fc" id="L84">        ZombieToast zt = buildZombieToast(pos.get(randGen.nextInt(pos.size())));</span>
+<span class="fc" id="L85">        map.addEntity(zt);</span>
+<span class="fc" id="L86">        game.register(() -&gt; zt.move(game), Game.AI_MOVEMENT, zt.getId());</span>
+<span class="fc" id="L87">    }</span>
+
+    public Spider buildSpider(Position pos) {
+<span class="fc" id="L90">        double spiderHealth = config.optDouble(&quot;spider_health&quot;, Spider.DEFAULT_HEALTH);</span>
+<span class="fc" id="L91">        double spiderAttack = config.optDouble(&quot;spider_attack&quot;, Spider.DEFAULT_ATTACK);</span>
+<span class="fc" id="L92">        return new Spider(pos, spiderHealth, spiderAttack);</span>
+    }
+
+    public Player buildPlayer(Position pos) {
+<span class="fc" id="L96">        double playerHealth = config.optDouble(&quot;player_health&quot;, Player.DEFAULT_HEALTH);</span>
+<span class="fc" id="L97">        double playerAttack = config.optDouble(&quot;player_attack&quot;, Player.DEFAULT_ATTACK);</span>
+<span class="fc" id="L98">        return new Player(pos, playerHealth, playerAttack);</span>
+    }
+
+    public ZombieToast buildZombieToast(Position pos) {
+<span class="fc" id="L102">        double zombieHealth = config.optDouble(&quot;zombie_health&quot;, ZombieToast.DEFAULT_HEALTH);</span>
+<span class="fc" id="L103">        double zombieAttack = config.optDouble(&quot;zombie_attack&quot;, ZombieToast.DEFAULT_ATTACK);</span>
+<span class="fc" id="L104">        return new ZombieToast(pos, zombieHealth, zombieAttack);</span>
+    }
+
+    public ZombieToastSpawner buildZombieToastSpawner(Position pos) {
+<span class="fc" id="L108">        int zombieSpawnRate = config.optInt(&quot;zombie_spawn_interval&quot;, ZombieToastSpawner.DEFAULT_SPAWN_INTERVAL);</span>
+<span class="fc" id="L109">        return new ZombieToastSpawner(pos, zombieSpawnRate);</span>
+    }
+
+    public Mercenary buildMercenary(Position pos) {
+<span class="fc" id="L113">        double mercenaryHealth = config.optDouble(&quot;mercenary_health&quot;, Mercenary.DEFAULT_HEALTH);</span>
+<span class="fc" id="L114">        double mercenaryAttack = config.optDouble(&quot;mercenary_attack&quot;, Mercenary.DEFAULT_ATTACK);</span>
+<span class="fc" id="L115">        double allyAttack = config.optDouble(&quot;ally_attack&quot;, Mercenary.DEFAULT_HEALTH);</span>
+<span class="fc" id="L116">        double allyDefence = config.optDouble(&quot;ally_defence&quot;, Mercenary.DEFAULT_ATTACK);</span>
+<span class="fc" id="L117">        int mercenaryBribeAmount = config.optInt(&quot;bribe_amount&quot;, Mercenary.DEFAULT_BRIBE_AMOUNT);</span>
+<span class="fc" id="L118">        int mercenaryBribeRadius = config.optInt(&quot;bribe_radius&quot;, Mercenary.DEFAULT_BRIBE_RADIUS);</span>
+<span class="fc" id="L119">        return new Mercenary(pos, mercenaryHealth, mercenaryAttack, mercenaryBribeAmount, mercenaryBribeRadius,</span>
+                allyAttack, allyDefence);
+    }
+
+    public Bow buildBow() {
+<span class="fc" id="L124">        int bowDurability = config.optInt(&quot;bow_durability&quot;);</span>
+<span class="fc" id="L125">        return new Bow(bowDurability);</span>
+    }
+
+    public Shield buildShield() {
+<span class="fc" id="L129">        int shieldDurability = config.optInt(&quot;shield_durability&quot;);</span>
+
+<span class="fc" id="L131">        double shieldDefence = config.optInt(&quot;shield_defence&quot;);</span>
+<span class="fc" id="L132">        return new Shield(shieldDurability, shieldDefence);</span>
+    }
+
+    public Sceptre buildSceptre() {
+<span class="fc" id="L136">        int mindControlDuration = config.optInt(&quot;mind_control_duration&quot;, Sceptre.DEFAULT_MIND_CONTROL_DURATION);</span>
+<span class="fc" id="L137">        return new Sceptre(mindControlDuration);</span>
+    }
+
+    public MidnightArmour buildMidnightArmour() {
+<span class="fc" id="L141">        double attack = config.optDouble(&quot;midnight_armour_attack&quot;, MidnightArmour.DEFAULT_ATTACK);</span>
+<span class="fc" id="L142">        double defence = config.optDouble(&quot;midnight_armour_defence&quot;, MidnightArmour.DEFAULT_DEFENCE);</span>
+
+<span class="fc" id="L144">        return new MidnightArmour(attack, defence);</span>
+    }
+
+    private LogicEnum getLogic(String string) {
+<span class="fc bfc" id="L148" title="All 5 branches covered.">        switch (string) {</span>
+        case &quot;OR&quot;:
+<span class="fc" id="L150">            return LogicEnum.OR;</span>
+        case &quot;AND&quot;:
+<span class="fc" id="L152">            return LogicEnum.AND;</span>
+        case &quot;XOR&quot;:
+<span class="fc" id="L154">            return LogicEnum.XOR;</span>
+        case &quot;CO_AND&quot;:
+<span class="fc" id="L156">            return LogicEnum.CO_AND;</span>
+        default:
+<span class="fc" id="L158">            return null;</span>
+        }
+    }
+
+    private Entity constructEntity(JSONObject jsonEntity, JSONObject config) {
+<span class="fc" id="L163">        Position pos = new Position(jsonEntity.getInt(&quot;x&quot;), jsonEntity.getInt(&quot;y&quot;));</span>
+
+<span class="pc bpc" id="L165" title="2 of 24 branches missed.">        switch (jsonEntity.getString(&quot;type&quot;)) {</span>
+        case &quot;player&quot;:
+<span class="fc" id="L167">            return buildPlayer(pos);</span>
+        case &quot;zombie_toast&quot;:
+<span class="fc" id="L169">            return buildZombieToast(pos);</span>
+        case &quot;zombie_toast_spawner&quot;:
+<span class="fc" id="L171">            return buildZombieToastSpawner(pos);</span>
+        case &quot;mercenary&quot;:
+<span class="fc" id="L173">            return buildMercenary(pos);</span>
+        case &quot;wall&quot;:
+<span class="fc" id="L175">            return new Wall(pos);</span>
+        case &quot;boulder&quot;:
+<span class="fc" id="L177">            return new Boulder(pos);</span>
+        case &quot;switch&quot;:
+<span class="fc" id="L179">            return new Switch(pos);</span>
+        case &quot;exit&quot;:
+<span class="fc" id="L181">            return new Exit(pos);</span>
+        case &quot;treasure&quot;:
+<span class="fc" id="L183">            return new Treasure(pos);</span>
+        case &quot;wood&quot;:
+<span class="fc" id="L185">            return new Wood(pos);</span>
+        case &quot;arrow&quot;:
+<span class="fc" id="L187">            return new Arrow(pos);</span>
+        case &quot;bomb&quot;:
+<span class="fc" id="L189">            String bombLogicStr = jsonEntity.optString(&quot;logic&quot;);</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">            LogicEnum bombLogic = (bombLogicStr != null) ? getLogic(bombLogicStr) : LogicEnum.NULL;</span>
+<span class="fc" id="L191">            int bombRadius = config.optInt(&quot;bomb_radius&quot;, Bomb.DEFAULT_RADIUS);</span>
+<span class="fc" id="L192">            return new Bomb(pos, bombRadius, bombLogic);</span>
+        case &quot;invisibility_potion&quot;:
+<span class="fc" id="L194">            int invisibilityPotionDuration = config.optInt(&quot;invisibility_potion_duration&quot;,</span>
+                    InvisibilityPotion.DEFAULT_DURATION);
+<span class="fc" id="L196">            return PotionFactory.createPotion(PotionType.INVISIBILITY, pos, invisibilityPotionDuration);</span>
+        case &quot;invincibility_potion&quot;:
+<span class="fc" id="L198">            int invincibilityPotionDuration = config.optInt(&quot;invincibility_potion_duration&quot;,</span>
+                    InvincibilityPotion.DEFAULT_DURATION);
+<span class="fc" id="L200">            return PotionFactory.createPotion(PotionType.INVINCIBILITY, pos, invincibilityPotionDuration);</span>
+        case &quot;portal&quot;:
+<span class="fc" id="L202">            return new Portal(pos, ColorCodedType.valueOf(jsonEntity.getString(&quot;colour&quot;)));</span>
+        case &quot;sword&quot;:
+<span class="fc" id="L204">            double swordAttack = config.optDouble(&quot;sword_attack&quot;, Sword.DEFAULT_ATTACK);</span>
+<span class="fc" id="L205">            int swordDurability = config.optInt(&quot;sword_durability&quot;, Sword.DEFAULT_DURABILITY);</span>
+<span class="fc" id="L206">            return new Sword(pos, swordAttack, swordDurability);</span>
+        case &quot;spider&quot;:
+<span class="fc" id="L208">            return buildSpider(pos);</span>
+        case &quot;door&quot;:
+<span class="fc" id="L210">            return new Door(pos, jsonEntity.getInt(&quot;key&quot;));</span>
+        case &quot;key&quot;:
+<span class="fc" id="L212">            return new Key(pos, jsonEntity.getInt(&quot;key&quot;));</span>
+        case &quot;sun_stone&quot;:
+<span class="fc" id="L214">            return new SunStone(pos);</span>
+        case &quot;switch_door&quot;:
+<span class="nc" id="L216">            LogicEnum doorLogic = getLogic(jsonEntity.getString(&quot;logic&quot;));</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">            if (doorLogic == null)</span>
+<span class="nc" id="L218">                throw new NullPointerException(&quot;Dungeon initialisation: logic received invalid input&quot;);</span>
+            else
+<span class="nc" id="L220">                return new SwitchDoor(pos, doorLogic);</span>
+        case &quot;wire&quot;:
+<span class="fc" id="L222">            return new Wire(pos);</span>
+        case &quot;light_bulb&quot;:
+<span class="fc" id="L224">            LogicEnum bulbLogic = getLogic(jsonEntity.getString(&quot;logic&quot;));</span>
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">            if (bulbLogic == null)</span>
+<span class="nc" id="L226">                throw new NullPointerException(&quot;Dungeon initialisation: logic received invalid input&quot;);</span>
+            else
+<span class="fc" id="L228">                return new LightBulb(pos, bulbLogic);</span>
+        default:
+<span class="nc" id="L230">            return null;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

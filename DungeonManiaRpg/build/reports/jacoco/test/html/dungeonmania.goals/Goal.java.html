@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Goal.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.goals</a> &gt; <span class="el_source">Goal.java</span></div><h1>Goal.java</h1><pre class="source lang-java linenums">package dungeonmania.goals;
+
+import dungeonmania.Game;
+
+public abstract class Goal {
+    private String type;
+    private int target;
+    private Goal goal1;
+    private Goal goal2;
+
+<span class="fc" id="L11">    public Goal(String type) {</span>
+<span class="fc" id="L12">        this.type = type;</span>
+<span class="fc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public Goal(String type, int target) {</span>
+<span class="fc" id="L16">        this.type = type;</span>
+<span class="fc" id="L17">        this.target = target;</span>
+<span class="fc" id="L18">    }</span>
+
+<span class="fc" id="L20">    public Goal(String type, Goal goal1, Goal goal2) {</span>
+<span class="fc" id="L21">        this.type = type;</span>
+<span class="fc" id="L22">        this.goal1 = goal1;</span>
+<span class="fc" id="L23">        this.goal2 = goal2;</span>
+<span class="fc" id="L24">    }</span>
+
+    public String getType() {
+<span class="nc" id="L27">        return type;</span>
+    }
+
+    public int getTarget() {
+<span class="fc" id="L31">        return target;</span>
+    }
+
+    public Goal getGoal1() {
+<span class="fc" id="L35">        return goal1;</span>
+    }
+
+    public Goal getGoal2() {
+<span class="fc" id="L39">        return goal2;</span>
+    }
+
+    public void setType(String type) {
+<span class="nc" id="L43">        type = this.type;</span>
+<span class="nc" id="L44">    }</span>
+
+    public void setTarget(int target) {
+<span class="nc" id="L47">        target = this.target;</span>
+<span class="nc" id="L48">    }</span>
+
+    public void setGoal1(Goal goal1) {
+<span class="nc" id="L51">        goal1 = this.goal1;</span>
+<span class="nc" id="L52">    }</span>
+
+    public void setGoal2(Goal goal2) {
+<span class="nc" id="L55">        goal2 = this.goal2;</span>
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * @return true if the goal has been achieved, false otherwise
+     */
+    public abstract boolean achieved(Game game);
+    //     {
+    //     if (game.getPlayer() == null)
+    //         return false;
+    //     switch (type) {
+    //     case &quot;exit&quot;:
+    //         Player character = game.getPlayer();
+    //         Position pos = character.getPosition();
+    //         List&lt;Exit&gt; es = game.getMap().getEntities(Exit.class);
+    //         if (es == null || es.size() == 0)
+    //             return false;
+    //         return es.stream().map(Entity::getPosition).anyMatch(pos::equals);
+    //     case &quot;boulders&quot;:
+    //         return game.getMap().getEntities(Switch.class).stream().allMatch(s -&gt; s.isActivated());
+    //     case &quot;treasure&quot;:
+    //         return game.getCollectedTreasureCount() &gt;= target;
+    //     case &quot;AND&quot;:
+    //         return goal1.achieved(game) &amp;&amp; goal2.achieved(game);
+    //     case &quot;OR&quot;:
+    //         return goal1.achieved(game) || goal2.achieved(game);
+    //     default:
+    //         break;
+    //     }
+    //     return false;
+    // }
+
+    public abstract String toString(Game game);
+    // {
+    //     if (this.achieved(game))
+    //         return &quot;&quot;;
+    //     switch (type) {
+    //     case &quot;exit&quot;:
+    //         return &quot;:exit&quot;;
+    //     case &quot;boulders&quot;:
+    //         return &quot;:boulders&quot;;
+    //     case &quot;treasure&quot;:
+    //         return &quot;:treasure&quot;;
+    //     case &quot;AND&quot;:
+    //         return &quot;(&quot; + goal1.toString(game) + &quot; AND &quot; + goal2.toString(game) + &quot;)&quot;;
+    //     case &quot;OR&quot;:
+    //         if (achieved(game))
+    //             return &quot;&quot;;
+    //         else
+    //             return &quot;(&quot; + goal1.toString(game) + &quot; OR &quot; + goal2.toString(game) + &quot;)&quot;;
+    //     default:
+    //         return &quot;&quot;;
+    //     }
+    // }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.ComplexGoalsTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:53" hostname="Alexs-MacBook-Pro-2.local" time="0.076">
+  <properties/>
+  <testcase name="Testing a switch goal can be achieved and then become unachieved" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.014"/>
+  <testcase name="Testing a map with 4 conjunction goal" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.009"/>
+  <testcase name="Test achieving a basic exit goal or a basic enemy goal" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.01"/>
+  <testcase name="Test achieving enemy goal and treasure goal and exit goal" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.01"/>
+  <testcase name="Test achieving a exit goal and a enemy goal by killing more than target" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.008"/>
+  <testcase name="Testing a map with 4 disjunction goal" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.008"/>
+  <testcase name="Testing that the exit goal must be achieved last and EXIT and TREASURE" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.008"/>
+  <testcase name="Testing that the exit goal must be achieved last in EXIT and TREASURE" classname="dungeonmania.mvp.ComplexGoalsTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 2 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

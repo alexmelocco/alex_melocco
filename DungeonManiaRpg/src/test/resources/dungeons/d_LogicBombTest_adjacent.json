@@ -1,0 +1,47 @@
+{
+    "entities": [
+        {
+            "type": "player",
+            "x": 2,
+            "y": 2
+        },
+        {
+            "type": "boulder",
+            "x": 3,
+            "y": 2
+        },
+        {
+            "type": "switch",
+            "x": 4,
+            "y": 2
+        },
+        {
+            "type": "wire",
+            "x": 5,
+            "y": 2
+        },
+        {
+            "type": "wire",
+            "x": 6,
+            "y": 2
+        },
+        {
+            "type": "wire",
+            "x": 7,
+            "y": 2
+        },
+        {
+            "type": "bomb",
+            "x": 7,
+            "y": 2
+        },
+        {
+            "type": "exit",
+            "x": 9,
+            "y": 9
+        }
+    ],
+    "goal-condition": {
+        "goal": "exit"
+    }
+}

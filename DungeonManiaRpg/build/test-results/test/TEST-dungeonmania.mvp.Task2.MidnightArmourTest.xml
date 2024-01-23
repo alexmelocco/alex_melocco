@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.Task2.MidnightArmourTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:53" hostname="Alexs-MacBook-Pro-2.local" time="0.065">
+  <properties/>
+  <testcase name="Can be crafted with (1 sword + 1 sun stone) if there are no zombies currently in the dungeon." classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.008"/>
+  <testcase name="Can be crafted with (1 sword + 1 sun stone) after killing only zombie." classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.011"/>
+  <testcase name="Can be crafted with (1 sword + 1 sun stone) if there are no zombies currently in the dungeon." classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.01"/>
+  <testcase name="Midnight armour provides extra attack damage as well as protection" classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.009"/>
+  <testcase name="Can be crafted with (1 sword + 1 sun stone) if there are no zombies currently in the dungeon." classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.008"/>
+  <testcase name="Test armour reduces enemy attack" classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.01"/>
+  <testcase name="Midnight armour should last forever" classname="dungeonmania.mvp.Task2.MidnightArmourTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

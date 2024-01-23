@@ -1,0 +1,185 @@
+package dungeonmania.entities.inventory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import dungeonmania.entities.BattleItem;
+import dungeonmania.entities.Entity;
+import dungeonmania.entities.EntityFactory;
+import dungeonmania.entities.Player;
+import dungeonmania.entities.buildables.Bow;
+import dungeonmania.entities.buildables.Sceptre;
+import dungeonmania.entities.collectables.Arrow;
+import dungeonmania.entities.collectables.Key;
+import dungeonmania.entities.collectables.Sword;
+import dungeonmania.entities.collectables.Treasure.SunStone;
+import dungeonmania.entities.collectables.Treasure.Treasure;
+import dungeonmania.entities.collectables.Wood;
+
+public class Inventory {
+    private List<InventoryItem> items = new ArrayList<>();
+
+    public boolean add(InventoryItem item) {
+        items.add(item);
+        return true;
+    }
+
+    public void remove(InventoryItem item) {
+        items.remove(item);
+    }
+
+    public List<String> getBuildables() {
+
+        int wood = count(Wood.class);
+        int arrows = count(Arrow.class);
+        int treasure = count(Treasure.class);
+        int keys = count(Key.class);
+        int sunStone = count(SunStone.class);
+        int sword = count(Sword.class);
+
+        List<String> result = new ArrayList<>();
+
+        if (wood >= 1 && arrows >= 3) {
+            result.add("bow");
+        }
+        if (wood >= 2 && (treasure >= 1 || keys >= 1)) {
+            result.add("shield");
+        }
+        if ((wood >= 1 || arrows >= 2) && (keys >= 1 || treasure >= 1 || sunStone >= 2) && (sunStone >= 1)) {
+            result.add("sceptre");
+            // note, sunStone can replace treasure, so if two sunstones, also can craft sceptre
+            // sunstone that replaces treasure is not consumed
+        }
+        if (sword >= 1 && sunStone >= 1) {
+            // Condition, cannot create if zombie present, checked in Game class (build)
+            result.add("midnight_armour");
+        }
+
+        return result;
+    }
+
+    // treasure retains spot, but if sunstone present, sunstone takes precedence over treasure
+    public InventoryItem checkBuildCriteria(Player p, boolean remove, boolean forceShield, EntityFactory factory) {
+
+        List<Wood> wood = getEntities(Wood.class);
+        List<Arrow> arrows = getEntities(Arrow.class);
+        List<Treasure> treasure = getEntities(Treasure.class);
+        List<Key> keys = getEntities(Key.class);
+        List<SunStone> sunStone = getEntities(SunStone.class);
+        List<Sword> sword = getEntities(Sword.class);
+
+        if (wood.size() >= 1 && arrows.size() >= 3 && !forceShield) {
+            if (remove) {
+                items.remove(wood.get(0));
+                items.remove(arrows.get(0));
+                items.remove(arrows.get(1));
+                items.remove(arrows.get(2));
+            }
+            return factory.buildBow();
+
+        } else if (wood.size() >= 2 && (sunStone.size() >= 1 || treasure.size() >= 1 || keys.size() >= 1)) {
+            if (remove) {
+                items.remove(wood.get(0));
+                items.remove(wood.get(1));
+                if (sunStone.size() >= 1) {
+                    // sunstone replaces treasure and is not consumed (not listed item)
+                    return factory.buildShield();
+                } else if (treasure.size() >= 1) {
+                    items.remove(treasure.get(0));
+                } else {
+                    items.remove(keys.get(0));
+                }
+            }
+            return factory.buildShield();
+        } else if ((wood.size() >= 1 || arrows.size() >= 2)
+                && (keys.size() >= 1 || treasure.size() >= 1 || sunStone.size() >= 2) && (sunStone.size() >= 1)) {
+            if (remove) {
+                if (wood.size() >= 1) {
+                    items.remove(wood.get(0));
+                } else {
+                    items.remove(arrows.get(0));
+                    items.remove(arrows.get(1));
+                }
+
+                if (sunStone.size() >= 1) {
+                    items.remove(sunStone.get(0));
+                }
+
+                if (sunStone.size() >= 2) {
+                    // sunstone not removed as not listed as building criteria
+                    return factory.buildSceptre();
+                } else if (treasure.size() >= 1) {
+                    items.remove(treasure.get(0));
+                } else if (sunStone.size() >= 1) {
+                    items.remove(keys.get(0));
+                } else {
+                    throw new IllegalArgumentException("Error is Sceptre build");
+                }
+
+                return factory.buildSceptre();
+            }
+        } else if (sword.size() >= 1 && sunStone.size() >= 1) {
+            items.remove(sword.get(0));
+            items.remove(sunStone.get(0));
+            return factory.buildMidnightArmour();
+        }
+        return null;
+    }
+
+    public <T extends InventoryItem> T getFirst(Class<T> itemType) {
+        for (InventoryItem item : items)
+            if (itemType.isInstance(item))
+                return itemType.cast(item);
+        return null;
+    }
+
+    public <T extends InventoryItem> int count(Class<T> itemType) {
+        int count = 0;
+        for (InventoryItem item : items)
+            if (itemType.isInstance(item))
+                count++;
+        return count;
+    }
+
+    public Entity getEntity(String itemUsedId) {
+        for (InventoryItem item : items)
+            if (((Entity) item).getId().equals(itemUsedId))
+                return (Entity) item;
+        return null;
+    }
+
+    // Remove the first sceptre
+    public boolean removeSceptre() {
+        List<Sceptre> entityList = getEntities(Sceptre.class);
+        for (Sceptre entity : entityList) {
+            remove(entity);
+            return true;
+        }
+        return false;
+    }
+
+    public List<Entity> getEntities() {
+        return items.stream().map(Entity.class::cast).collect(Collectors.toList());
+    }
+
+    public <T> List<T> getEntities(Class<T> clz) {
+        return items.stream().filter(clz::isInstance).map(clz::cast).collect(Collectors.toList());
+    }
+
+    public boolean hasWeapon() {
+        return getFirst(Sword.class) != null || getFirst(Bow.class) != null;
+    }
+
+    public boolean hasSceptre() {
+        return getFirst(Sceptre.class) != null;
+    }
+
+    public BattleItem getWeapon() {
+        BattleItem weapon = getFirst(Sword.class);
+        if (weapon == null)
+            return getFirst(Bow.class);
+        return weapon;
+    }
+
+}

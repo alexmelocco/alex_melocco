@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Mercenary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.enemies</a> &gt; <span class="el_source">Mercenary.java</span></div><h1>Mercenary.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.enemies;
+
+import dungeonmania.Game;
+import dungeonmania.battles.BattleStatistics;
+import dungeonmania.entities.Entity;
+import dungeonmania.entities.Interactable;
+import dungeonmania.entities.Player;
+import dungeonmania.entities.collectables.Treasure.Treasure;
+import dungeonmania.entities.collectables.potions.InvincibilityPotion;
+import dungeonmania.entities.collectables.potions.InvisibilityPotion;
+import dungeonmania.entities.enemies.MoveStrat.FollowHostileMovementStrategy;
+import dungeonmania.entities.enemies.MoveStrat.InvincibilityMovementStrategy;
+import dungeonmania.entities.enemies.MoveStrat.InvisibilityMovementStrategy;
+import dungeonmania.entities.enemies.MoveStrat.MovementStrategy;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Position;
+
+public class Mercenary extends Enemy implements Interactable {
+    public static final int DEFAULT_BRIBE_AMOUNT = 1;
+    public static final int DEFAULT_BRIBE_RADIUS = 1;
+    public static final double DEFAULT_ATTACK = 5.0;
+    public static final double DEFAULT_HEALTH = 10.0;
+
+<span class="fc" id="L24">    private int bribeAmount = Mercenary.DEFAULT_BRIBE_AMOUNT;</span>
+<span class="fc" id="L25">    private int bribeRadius = Mercenary.DEFAULT_BRIBE_RADIUS;</span>
+<span class="fc" id="L26">    private int mindControlDuration = 0;</span>
+
+    private double allyAttack;
+    private double allyDefence;
+<span class="fc" id="L30">    private boolean allied = false;</span>
+<span class="fc" id="L31">    private boolean bribeStatus = false;</span>
+<span class="fc" id="L32">    private boolean isAdjacentToPlayer = false;</span>
+
+    public Mercenary(Position position, double health, double attack, int bribeAmount, int bribeRadius,
+            double allyAttack, double allyDefence) {
+<span class="fc" id="L36">        super(position, health, attack);</span>
+<span class="fc" id="L37">        this.bribeAmount = bribeAmount;</span>
+<span class="fc" id="L38">        this.bribeRadius = bribeRadius;</span>
+<span class="fc" id="L39">        this.allyAttack = allyAttack;</span>
+<span class="fc" id="L40">        this.allyDefence = allyDefence;</span>
+<span class="fc" id="L41">    }</span>
+
+    public boolean isAllied() {
+<span class="fc" id="L44">        return allied;</span>
+    }
+
+    public int getMindControlDuration() {
+<span class="nc" id="L48">        return mindControlDuration;</span>
+    }
+
+    public void setMindControlDuration(int mindControlDuration) {
+<span class="fc" id="L52">        this.mindControlDuration = mindControlDuration;</span>
+<span class="fc" id="L53">    }</span>
+
+    public boolean mindControlStatus() {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        return mindControlDuration &gt; 0;</span>
+    }
+
+    /*
+     * If ticks to 0, then change allied status to false, if not bribed
+     */
+    public void tickMindControl() {
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (!mindControlStatus())</span>
+<span class="fc" id="L64">            return;</span>
+
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (mindControlDuration &gt; 0)</span>
+<span class="fc" id="L67">            mindControlDuration--;</span>
+
+        // if mindControlStatus == 0, bribeStatus = false, make allied false
+<span class="fc bfc" id="L70" title="All 4 branches covered.">        if (!mindControlStatus() &amp;&amp; !bribeStatus)</span>
+<span class="fc" id="L71">            allied = false;</span>
+<span class="fc" id="L72">    }</span>
+
+    @Override
+    public void onOverlap(GameMap map, Entity entity) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (allied)</span>
+<span class="fc" id="L77">            return;</span>
+<span class="fc" id="L78">        super.onOverlap(map, entity);</span>
+<span class="fc" id="L79">    }</span>
+
+    /**
+     * check whether the current merc can be bribed
+     * @param player
+     * @return
+     */
+    private boolean canBeBribed(Player player) {
+<span class="pc bpc" id="L87" title="1 of 4 branches missed.">        return bribeRadius &gt;= 0 &amp;&amp; player.countEntityOfType(Treasure.class) &gt;= bribeAmount;</span>
+    }
+
+    private void setAllied(boolean bool) {
+<span class="fc" id="L91">        this.allied = bool;</span>
+<span class="fc" id="L92">    }</span>
+
+    /**
+     * bribe the merc
+     */
+    private void bribe(Player player) {
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for (int i = 0; i &lt; bribeAmount; i++) {</span>
+<span class="fc" id="L99">            player.use(Treasure.class);</span>
+        }
+<span class="fc" id="L101">    }</span>
+
+    private void mindControl(Player player) {
+<span class="fc" id="L104">        int controlDuration = player.use(&quot;sceptre&quot;);</span>
+<span class="fc" id="L105">        setMindControlDuration(controlDuration);</span>
+<span class="fc" id="L106">        setAllied(true);</span>
+<span class="fc" id="L107">    }</span>
+
+    // Bribe takes priority over mindControl, cannot mind control if have been bribed
+    @Override
+    public void interact(Player player, Game game) {
+<span class="pc bpc" id="L112" title="1 of 4 branches missed.">        if (canBeBribed(player) &amp;&amp; !bribeStatus) {</span>
+<span class="fc" id="L113">            allied = true;</span>
+<span class="fc" id="L114">            bribeStatus = true;</span>
+<span class="fc" id="L115">            bribe(player);</span>
+<span class="pc bpc" id="L116" title="3 of 6 branches missed.">        } else if (player.hasSceptre() &amp;&amp; !mindControlStatus() &amp;&amp; !bribeStatus) {</span>
+            //only activate if player has sceptre and not already mind controlled, and not bribed
+<span class="fc" id="L118">            mindControl(player);</span>
+        }
+
+<span class="pc bpc" id="L121" title="1 of 4 branches missed.">        if (!isAdjacentToPlayer &amp;&amp; Position.isAdjacent(player.getPosition(), getPosition()))</span>
+<span class="fc" id="L122">            isAdjacentToPlayer = true;</span>
+<span class="fc" id="L123">    }</span>
+
+    @Override
+    public void move(Game game) {
+        Position nextPos;
+<span class="fc" id="L128">        GameMap map = game.getMap();</span>
+<span class="fc" id="L129">        Player player = game.getPlayer();</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        if (allied) {</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">            nextPos = isAdjacentToPlayer ? player.getPreviousDistinctPosition()</span>
+<span class="fc" id="L132">                    : map.dijkstraPathFind(getPosition(), player.getPosition(), this);</span>
+<span class="fc bfc" id="L133" title="All 4 branches covered.">            if (!isAdjacentToPlayer &amp;&amp; Position.isAdjacent(player.getPosition(), nextPos))</span>
+<span class="fc" id="L134">                isAdjacentToPlayer = true;</span>
+<span class="fc" id="L135">            map.moveTo(this, nextPos);</span>
+        } else {
+            MovementStrategy movementStrategy;
+<span class="fc bfc" id="L138" title="All 2 branches covered.">            if (map.getPlayer().getEffectivePotion() instanceof InvisibilityPotion) {</span>
+<span class="fc" id="L139">                movementStrategy = new InvisibilityMovementStrategy();</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">            } else if (map.getPlayer().getEffectivePotion() instanceof InvincibilityPotion) {</span>
+<span class="fc" id="L141">                movementStrategy = new InvincibilityMovementStrategy();</span>
+            } else {
+<span class="fc" id="L143">                movementStrategy = new FollowHostileMovementStrategy();</span>
+            }
+<span class="fc" id="L145">            movementStrategy.move(game, this);</span>
+        }
+
+<span class="fc" id="L148">    }</span>
+
+    /*
+     * is interactable if player.hasSceptre or canBeBribed (enough treasure)
+     * Logic for  (player.hasSceptre() &amp;&amp; !allied)
+     * - cannot interact with player if sceptre, but already mindcontrolled (allied)
+     */
+    @Override
+    public boolean isInteractable(Player player) {
+<span class="fc bfc" id="L157" title="All 8 branches covered.">        return !bribeStatus &amp;&amp; (canBeBribed(player) || (player.hasSceptre() &amp;&amp; !allied));</span>
+    }
+
+    @Override
+    public BattleStatistics getBattleStatistics() {
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if (!allied)</span>
+<span class="fc" id="L163">            return super.getBattleStatistics();</span>
+<span class="fc" id="L164">        return new BattleStatistics(0, allyAttack, allyDefence, 1, 1);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

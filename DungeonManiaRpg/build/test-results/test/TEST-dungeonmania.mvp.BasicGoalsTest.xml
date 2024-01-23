@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.BasicGoalsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:53" hostname="Alexs-MacBook-Pro-2.local" time="0.046">
+  <properties/>
+  <testcase name="Test achieving a basic enemy goal by killing one zombie" classname="dungeonmania.mvp.BasicGoalsTest" time="0.007"/>
+  <testcase name="Test achieving a basic exit goal" classname="dungeonmania.mvp.BasicGoalsTest" time="0.009"/>
+  <testcase name="Test achieving a boulders goal where there are five switches" classname="dungeonmania.mvp.BasicGoalsTest" time="0.01"/>
+  <testcase name="Test achieving a basic treasure goal" classname="dungeonmania.mvp.BasicGoalsTest" time="0.009"/>
+  <testcase name="Test achieving a basic boulders goal" classname="dungeonmania.mvp.BasicGoalsTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

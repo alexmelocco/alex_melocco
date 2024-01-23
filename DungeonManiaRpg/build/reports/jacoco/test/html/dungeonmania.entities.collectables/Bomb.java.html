@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bomb.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.collectables</a> &gt; <span class="el_source">Bomb.java</span></div><h1>Bomb.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.collectables;
+
+import dungeonmania.util.Position;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import dungeonmania.LogicEnum;
+import dungeonmania.entities.Entity;
+import dungeonmania.entities.Player;
+import dungeonmania.entities.staticentities.Switch;
+import dungeonmania.entities.staticentities.Wire;
+import dungeonmania.entities.staticentities.LogicEntities.LogicProcessor;
+import dungeonmania.map.GameMap;
+
+public class Bomb extends CollectableEntity {
+<span class="fc" id="L18">    public enum State {</span>
+<span class="fc" id="L19">        SPAWNED, INVENTORY, PLACED</span>
+    }
+
+    public static final int DEFAULT_RADIUS = 1;
+    private State state;
+    private int radius;
+    private LogicEnum logic;
+    private List&lt;Boolean&gt; history;
+
+<span class="fc" id="L28">    private List&lt;Switch&gt; subs = new ArrayList&lt;&gt;();</span>
+
+    public Bomb(Position position, int radius, LogicEnum logic) {
+<span class="fc" id="L31">        super(position);</span>
+<span class="fc" id="L32">        state = State.SPAWNED;</span>
+<span class="fc" id="L33">        this.radius = radius;</span>
+<span class="fc" id="L34">        this.logic = logic;</span>
+<span class="fc" id="L35">        this.history = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L36">    }</span>
+
+    public void subscribe(Switch s) {
+<span class="fc" id="L39">        this.subs.add(s);</span>
+<span class="fc" id="L40">    }</span>
+
+    public void notify(GameMap map) {
+<span class="fc" id="L43">        explode(map);</span>
+<span class="fc" id="L44">    }</span>
+
+    @Override
+    public void onOverlap(GameMap map, Entity entity) {
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (state != State.SPAWNED)</span>
+<span class="fc" id="L49">            return;</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if (entity instanceof Player) {</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if (!((Player) entity).pickUp(this))</span>
+<span class="nc" id="L52">                return;</span>
+<span class="fc" id="L53">            subs.stream().forEach(s -&gt; s.unsubscribe(this));</span>
+<span class="fc" id="L54">            map.destroyEntity(this);</span>
+        }
+<span class="fc" id="L56">        this.state = State.INVENTORY;</span>
+<span class="fc" id="L57">    }</span>
+
+    public void onPutDown(GameMap map, Position p) {
+        // get position change, then setPosition by transaltion
+<span class="fc" id="L61">        Position delta = Position.calculatePositionBetween(getPosition(), p);</span>
+<span class="fc" id="L62">        setPosition(Position.translateBy(getPosition(), delta));</span>
+<span class="fc" id="L63">        map.addEntity(this);</span>
+<span class="fc" id="L64">        this.state = State.PLACED;</span>
+<span class="fc" id="L65">        List&lt;Position&gt; adjPosList = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc" id="L66">        adjPosList.stream().forEach(node -&gt; {</span>
+<span class="fc" id="L67">            List&lt;Entity&gt; entities = map.getEntities(node).stream().filter(e -&gt; (e instanceof Switch))</span>
+<span class="fc" id="L68">                    .collect(Collectors.toList());</span>
+<span class="fc" id="L69">            entities.stream().map(Switch.class::cast).forEach(s -&gt; s.subscribe(this, map));</span>
+<span class="fc" id="L70">            entities.stream().map(Switch.class::cast).forEach(s -&gt; this.subscribe(s));</span>
+<span class="fc" id="L71">        });</span>
+<span class="fc" id="L72">    }</span>
+
+    public void explode(GameMap map) {
+<span class="fc" id="L75">        int x = getPosition().getX();</span>
+<span class="fc" id="L76">        int y = getPosition().getY();</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        for (int i = x - radius; i &lt;= x + radius; i++) {</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            for (int j = y - radius; j &lt;= y + radius; j++) {</span>
+<span class="fc" id="L79">                List&lt;Entity&gt; entities = map.getEntities(new Position(i, j));</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                entities = entities.stream().filter(e -&gt; !(e instanceof Player)).collect(Collectors.toList());</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                for (Entity e : entities)</span>
+<span class="fc" id="L82">                    map.destroyEntity(e);</span>
+            }
+        }
+<span class="fc" id="L85">    }</span>
+
+    public State getState() {
+<span class="nc" id="L88">        return state;</span>
+    }
+
+    public void tickUpdate(GameMap map) {
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (state != State.PLACED) {</span>
+<span class="fc" id="L93">            return;</span>
+        }
+<span class="fc" id="L95">        List&lt;Position&gt; adjPosList = getPosition().getCardinallyAdjacentPositions();</span>
+<span class="fc" id="L96">        List&lt;Boolean&gt; booleanList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for (Position adjPos : adjPosList) {</span>
+<span class="fc" id="L99">            booleanList.addAll(tickUpdate(map, map.getEntities(adjPos)));</span>
+<span class="fc" id="L100">        }</span>
+
+        // if booleanList includes true then turn on
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        if (LogicProcessor.processBooleanList(logic, booleanList, history, false)) {</span>
+<span class="fc" id="L104">            explode(map);</span>
+        }
+<span class="fc" id="L106">        history = booleanList;</span>
+<span class="fc" id="L107">    }</span>
+
+    private List&lt;Boolean&gt; tickUpdate(GameMap map, List&lt;Entity&gt; entities) {
+<span class="fc" id="L110">        List&lt;Boolean&gt; booleanList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        for (Entity entity : entities) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (entity instanceof Switch) {</span>
+<span class="fc" id="L113">                Switch switchEntity = (Switch) entity;</span>
+<span class="fc" id="L114">                booleanList.add(switchEntity.isActivated());</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">            } else if (entity instanceof Wire) {</span>
+<span class="fc" id="L116">                Wire wireEntity = (Wire) entity;</span>
+<span class="fc" id="L117">                booleanList.add(wireEntity.isActivated());</span>
+            }
+<span class="fc" id="L119">        }</span>
+<span class="fc" id="L120">        return booleanList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

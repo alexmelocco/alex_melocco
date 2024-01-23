@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.PotionsTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:53" hostname="Alexs-MacBook-Pro-2.local" time="0.151">
+  <properties/>
+  <testcase name="Test invisibility potions cause mercenaries to move randomly" classname="dungeonmania.mvp.PotionsTest" time="0.08"/>
+  <testcase name="Test invincibility potions do not change spider movement" classname="dungeonmania.mvp.PotionsTest" time="0.008"/>
+  <testcase name="Test the effects of the invincibility potion only last for a limited time" classname="dungeonmania.mvp.PotionsTest" time="0.009"/>
+  <testcase name="Test when the effects of a 2nd potion are 'queued'" classname="dungeonmania.mvp.PotionsTest" time="0.01"/>
+  <testcase name="Test invincibility potion can be picked up and consumed" classname="dungeonmania.mvp.PotionsTest" time="0.009"/>
+  <testcase name="Test invisibility potion can be picked up and consumed" classname="dungeonmania.mvp.PotionsTest" time="0.008"/>
+  <testcase name="Test invincibility potion causes zombies to flee" classname="dungeonmania.mvp.PotionsTest" time="0.007"/>
+  <testcase name="Test the effects of the invisibility potion only last for a limited time" classname="dungeonmania.mvp.PotionsTest" time="0.009"/>
+  <testcase name="Test invincibility potion causes mercenaries to flee" classname="dungeonmania.mvp.PotionsTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

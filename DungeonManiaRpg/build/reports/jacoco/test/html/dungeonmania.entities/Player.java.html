@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package dungeonmania.entities;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+import dungeonmania.battles.BattleStatistics;
+import dungeonmania.battles.Battleable;
+import dungeonmania.entities.buildables.Sceptre;
+import dungeonmania.entities.collectables.Bomb;
+import dungeonmania.entities.collectables.Treasure.SunStone;
+import dungeonmania.entities.collectables.Treasure.Treasure;
+import dungeonmania.entities.collectables.potions.InvincibilityPotion;
+import dungeonmania.entities.collectables.potions.Potion;
+import dungeonmania.entities.enemies.Enemy;
+import dungeonmania.entities.enemies.Mercenary;
+import dungeonmania.entities.inventory.Inventory;
+import dungeonmania.entities.inventory.InventoryItem;
+import dungeonmania.entities.playerState.BaseState;
+import dungeonmania.entities.playerState.PlayerState;
+import dungeonmania.entities.staticentities.Switch;
+import dungeonmania.entities.staticentities.Wire;
+import dungeonmania.entities.staticentities.LogicEntities.LogicEntity;
+import dungeonmania.map.GameMap;
+import dungeonmania.util.Direction;
+import dungeonmania.util.Position;
+
+public class Player extends Entity implements Battleable {
+    public static final double DEFAULT_ATTACK = 5.0;
+    public static final double DEFAULT_HEALTH = 5.0;
+    private BattleStatistics battleStatistics;
+    private Inventory inventory;
+<span class="fc" id="L33">    private Queue&lt;Potion&gt; queue = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L34">    private Potion inEffective = null;</span>
+<span class="fc" id="L35">    private int nextTrigger = 0;</span>
+
+<span class="fc" id="L37">    private int collectedTreasureCount = 0;</span>
+
+    private PlayerState state;
+
+    public Player(Position position, double health, double attack) {
+<span class="fc" id="L42">        super(position);</span>
+<span class="fc" id="L43">        battleStatistics = new BattleStatistics(health, attack, 0, BattleStatistics.DEFAULT_DAMAGE_MAGNIFIER,</span>
+                BattleStatistics.DEFAULT_PLAYER_DAMAGE_REDUCER);
+<span class="fc" id="L45">        inventory = new Inventory();</span>
+<span class="fc" id="L46">        state = new BaseState(this);</span>
+<span class="fc" id="L47">    }</span>
+
+    public int getCollectedTreasureCount() {
+<span class="fc" id="L50">        return collectedTreasureCount;</span>
+    }
+
+    public boolean hasWeapon() {
+<span class="fc" id="L54">        return inventory.hasWeapon();</span>
+    }
+
+    public BattleItem getWeapon() {
+<span class="nc" id="L58">        return inventory.getWeapon();</span>
+    }
+
+    public List&lt;String&gt; getBuildables() {
+<span class="fc" id="L62">        return inventory.getBuildables();</span>
+    }
+
+    public boolean hasSceptre() {
+<span class="fc" id="L66">        return inventory.hasSceptre();</span>
+    }
+
+    public boolean build(String entity, EntityFactory factory) {
+<span class="fc" id="L70">        InventoryItem item = inventory.checkBuildCriteria(this, true, entity.equals(&quot;shield&quot;), factory);</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">        if (item == null)</span>
+<span class="nc" id="L72">            return false;</span>
+<span class="fc" id="L73">        return inventory.add(item);</span>
+    }
+
+    private void tickObservers(GameMap map) {
+<span class="fc" id="L77">        List&lt;Wire&gt; wireList = map.getEntities(Wire.class);</span>
+<span class="fc" id="L78">        List&lt;Switch&gt; switchList = map.getEntities(Switch.class);</span>
+
+        // reset all wires to false
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        for (Wire wireEntity : wireList) {</span>
+<span class="fc" id="L82">            wireEntity.tickReset();</span>
+<span class="fc" id="L83">        }</span>
+
+        // recursively update all wires from each active switch
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for (Switch switchEntity : switchList) {</span>
+<span class="fc" id="L87">            switchEntity.tickUpdate(map);</span>
+<span class="fc" id="L88">        }</span>
+<span class="fc" id="L89">    }</span>
+
+    /*
+     * Tick Logic Entities
+     */
+    private void tickLogicEntities(GameMap map) {
+<span class="fc" id="L95">        List&lt;LogicEntity&gt; logicList = map.getEntities(LogicEntity.class);</span>
+
+        // Update each logical entity with true or false
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for (LogicEntity logicEntity : logicList) {</span>
+<span class="fc" id="L99">            logicEntity.tickUpdate(map);</span>
+<span class="fc" id="L100">        }</span>
+<span class="fc" id="L101">    }</span>
+
+    /*
+     * Tick Bomb Entities
+     */
+    private void tickBombEntities(GameMap map) {
+<span class="fc" id="L107">        List&lt;Bomb&gt; bombList = map.getEntities(Bomb.class);</span>
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        for (Bomb boomy : bombList) {</span>
+<span class="fc" id="L110">            boomy.tickUpdate(map);</span>
+<span class="fc" id="L111">        }</span>
+<span class="fc" id="L112">    }</span>
+
+    private void updateLogicEntities(GameMap map) {
+<span class="fc" id="L115">        tickObservers(map);</span>
+<span class="fc" id="L116">        tickLogicEntities(map);</span>
+<span class="fc" id="L117">        tickBombEntities(map);</span>
+<span class="fc" id="L118">    }</span>
+
+    public void move(GameMap map, Direction direction) {
+<span class="fc" id="L121">        this.setFacing(direction);</span>
+<span class="fc" id="L122">        map.moveTo(this, Position.translateBy(this.getPosition(), direction));</span>
+<span class="fc" id="L123">        updateLogicEntities(map);</span>
+<span class="fc" id="L124">    }</span>
+
+    public double getHealth() {
+<span class="fc" id="L127">        return battleStatistics.getHealth();</span>
+    }
+
+    @Override
+    public void onOverlap(GameMap map, Entity entity) {
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">        if (entity instanceof Enemy) {</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">            if (entity instanceof Mercenary) {</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                if (((Mercenary) entity).isAllied())</span>
+<span class="fc" id="L135">                    return;</span>
+            }
+<span class="fc" id="L137">            map.getGame().battle(this, (Enemy) entity);</span>
+        }
+<span class="fc" id="L139">    }</span>
+
+    @Override
+    public boolean canMoveOnto(GameMap map, Entity entity) {
+<span class="fc" id="L143">        return true;</span>
+    }
+
+    public Entity getEntity(String itemUsedId) {
+<span class="fc" id="L147">        return inventory.getEntity(itemUsedId);</span>
+    }
+
+    public boolean pickUp(Entity item) {
+<span class="fc bfc" id="L151" title="All 4 branches covered.">        if (item instanceof Treasure || item instanceof SunStone)</span>
+<span class="fc" id="L152">            collectedTreasureCount++;</span>
+<span class="fc" id="L153">        return inventory.add((InventoryItem) item);</span>
+    }
+
+    public Inventory getInventory() {
+<span class="fc" id="L157">        return inventory;</span>
+    }
+
+    public Potion getEffectivePotion() {
+<span class="fc" id="L161">        return inEffective;</span>
+    }
+
+    public &lt;T extends InventoryItem&gt; void use(Class&lt;T&gt; itemType) {
+<span class="fc" id="L165">        T item = inventory.getFirst(itemType);</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (item != null)</span>
+<span class="fc" id="L167">            inventory.remove(item);</span>
+<span class="fc" id="L168">    }</span>
+
+    public void use(Bomb bomb, GameMap map) {
+<span class="fc" id="L171">        inventory.remove(bomb);</span>
+<span class="fc" id="L172">        bomb.onPutDown(map, getPosition());</span>
+<span class="fc" id="L173">    }</span>
+
+    public void triggerNext(int currentTick) {
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        if (queue.isEmpty()) {</span>
+<span class="fc" id="L177">            inEffective = null;</span>
+<span class="fc" id="L178">            state.transitionBase();</span>
+<span class="fc" id="L179">            return;</span>
+        }
+<span class="fc" id="L181">        inEffective = queue.remove();</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        if (inEffective instanceof InvincibilityPotion) {</span>
+<span class="fc" id="L183">            state.transitionInvincible();</span>
+        } else {
+<span class="fc" id="L185">            state.transitionInvisible();</span>
+        }
+<span class="fc" id="L187">        nextTrigger = currentTick + inEffective.getDuration();</span>
+<span class="fc" id="L188">    }</span>
+
+    public void changeState(PlayerState playerState) {
+<span class="fc" id="L191">        state = playerState;</span>
+<span class="fc" id="L192">    }</span>
+
+    public void use(Potion potion, int tick) {
+<span class="fc" id="L195">        inventory.remove(potion);</span>
+<span class="fc" id="L196">        queue.add(potion);</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">        if (inEffective == null) {</span>
+<span class="fc" id="L198">            triggerNext(tick);</span>
+        }
+<span class="fc" id="L200">    }</span>
+
+    /*
+     * function use a scepre, assumes mercenary checked for sceptre use
+     * Return mind control Duration
+     */
+    public int use(String input) {
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">        if (!input.equals(&quot;sceptre&quot;)) {</span>
+<span class="nc" id="L208">            throw new IllegalArgumentException(&quot;player.use not given correct argument: &quot; + input);</span>
+        }
+<span class="fc" id="L210">        List&lt;Sceptre&gt; sceptreList = inventory.getEntities(Sceptre.class);</span>
+
+        // set mind control duration and remove sceptre
+
+<span class="fc" id="L214">        inventory.remove(sceptreList.get(0));</span>
+<span class="fc" id="L215">        return sceptreList.get(0).getMindControlDuration();</span>
+    }
+
+    public void onTick(int tick) {
+<span class="fc bfc" id="L219" title="All 4 branches covered.">        if (inEffective == null || tick == nextTrigger) {</span>
+<span class="fc" id="L220">            triggerNext(tick);</span>
+        }
+<span class="fc" id="L222">    }</span>
+
+    public void remove(InventoryItem item) {
+<span class="fc" id="L225">        inventory.remove(item);</span>
+<span class="fc" id="L226">    }</span>
+
+    @Override
+    public BattleStatistics getBattleStatistics() {
+<span class="fc" id="L230">        return battleStatistics;</span>
+    }
+
+    public &lt;T extends InventoryItem&gt; int countEntityOfType(Class&lt;T&gt; itemType) {
+<span class="fc" id="L234">        return inventory.count(itemType);</span>
+    }
+
+    public BattleStatistics applyBuff(BattleStatistics origin) {
+<span class="fc bfc" id="L238" title="All 2 branches covered.">        if (state.isInvincible()) {</span>
+<span class="fc" id="L239">            return BattleStatistics.applyBuff(origin, new BattleStatistics(0, 0, 0, 1, 1, true, true));</span>
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">        } else if (state.isInvisible()) {</span>
+<span class="fc" id="L241">            return BattleStatistics.applyBuff(origin, new BattleStatistics(0, 0, 0, 1, 1, false, false));</span>
+        }
+<span class="nc" id="L243">        return origin;</span>
+    }
+
+    @Override
+    public void onMovedAway(GameMap map, Entity entity) {
+<span class="fc" id="L248">        return;</span>
+    }
+
+    @Override
+    public void onDestroy(GameMap gameMap) {
+<span class="fc" id="L253">        return;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

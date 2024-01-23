@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.BattleTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:53" hostname="Alexs-MacBook-Pro-2.local" time="0.215">
+  <properties/>
+  <testcase name="Test basic health calculations spider - player wins" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test the player battles three enemies consecutively and defeats them" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test ally gives attack and defence bonus" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test player battles mercenary and mercenary dies" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test player battles mercenary and player dies" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test basic health calculations zombie - player wins" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test shield reduces enemy attack" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test sword increases attack damage" classname="dungeonmania.mvp.BattleTest" time="0.007"/>
+  <testcase name="Test a player wins a battle against a mercenary with an invincibility potion" classname="dungeonmania.mvp.BattleTest" time="0.012"/>
+  <testcase name="Test player wins a battle against a zombie with an invincibility potion" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test player battles zombie and zombie dies" classname="dungeonmania.mvp.BattleTest" time="0.01"/>
+  <testcase name="Test bow durability" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test sword durability" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test basic health calculations mercenary - player loses" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test player battles spider and spider dies" classname="dungeonmania.mvp.BattleTest" time="0.014"/>
+  <testcase name="Test player wins a battle against a spider with an invinicibility potion" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test attack twice with bow - spider" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test basic health calculations spider - player loses" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test basic health calculations zombie - player loses" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test basic health calculations mercenary - player wins" classname="dungeonmania.mvp.BattleTest" time="0.01"/>
+  <testcase name="Test player battles spider and player dies" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <testcase name="Test player battles zombie and player dies" classname="dungeonmania.mvp.BattleTest" time="0.008"/>
+  <testcase name="Test shield durability" classname="dungeonmania.mvp.BattleTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 9 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 3 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

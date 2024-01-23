@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LogicProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.entities.staticentities.LogicEntities</a> &gt; <span class="el_source">LogicProcessor.java</span></div><h1>LogicProcessor.java</h1><pre class="source lang-java linenums">package dungeonmania.entities.staticentities.LogicEntities;
+
+import java.util.List;
+
+import dungeonmania.LogicEnum;
+
+<span class="nc" id="L7">public class LogicProcessor {</span>
+    public static Boolean processBooleanList(LogicEnum logic, List&lt;Boolean&gt; booleanList, List&lt;Boolean&gt; history,
+            Boolean curr) {
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        if (logic == null) {</span>
+<span class="fc" id="L11">            return booleanList.contains(true);</span>
+        }
+
+<span class="pc bpc" id="L14" title="2 of 6 branches missed.">        switch (logic) {</span>
+        case OR:
+<span class="fc" id="L16">            return processOr(booleanList);</span>
+        case AND:
+<span class="fc" id="L18">            return processAnd(booleanList);</span>
+        case XOR:
+<span class="fc" id="L20">            return processXor(booleanList);</span>
+        case CO_AND:
+<span class="fc" id="L22">            return processCoAnd(booleanList, history, curr);</span>
+        case NULL:
+<span class="nc" id="L24">            return booleanList.contains(true);</span>
+        default:
+<span class="nc" id="L26">            throw new IllegalArgumentException(&quot;Unknown logic: &quot; + logic);</span>
+        }
+    }
+
+    private static Boolean processOr(List&lt;Boolean&gt; booleanList) {
+<span class="fc" id="L31">        return booleanList.contains(true);</span>
+    }
+
+    private static Boolean processAnd(List&lt;Boolean&gt; booleanList) {
+        // Implement the logic for AND
+<span class="fc" id="L36">        int count = 0;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (Boolean value : booleanList) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (value) {</span>
+<span class="fc" id="L39">                count++;</span>
+            }
+<span class="fc" id="L41">        }</span>
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        return (count &gt;= 2) &amp;&amp; !booleanList.contains(false);</span>
+
+    }
+
+    private static Boolean processXor(List&lt;Boolean&gt; booleanList) {
+<span class="fc" id="L47">        int count = 0;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (Boolean bool : booleanList) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            if (bool) {</span>
+<span class="fc" id="L50">                count++;</span>
+            }
+<span class="fc" id="L52">        }</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        return count == 1;</span>
+    }
+
+    private static Boolean processCoAnd(List&lt;Boolean&gt; booleanList, List&lt;Boolean&gt; history, Boolean curr) {
+<span class="fc" id="L57">        int historyCount = 0;</span>
+<span class="fc" id="L58">        int boolCount = 0;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (Boolean bool : history) {</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            if (bool) {</span>
+<span class="fc" id="L61">                historyCount++;</span>
+            }
+<span class="fc" id="L63">        }</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (Boolean bool : booleanList) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (bool) {</span>
+<span class="fc" id="L66">                boolCount++;</span>
+            }
+<span class="fc" id="L68">        }</span>
+        // if no change, return current status
+<span class="fc bfc" id="L70" title="All 4 branches covered.">        if (boolCount != 0 &amp;&amp; (boolCount == historyCount)) {</span>
+<span class="fc" id="L71">            return curr;</span>
+        }
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        return (boolCount - historyCount) &gt;= 2;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

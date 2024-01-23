@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/App.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/ComparableCallback.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/DungeonManiaController.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/Game.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/GameBuilder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/LogicEnum.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleFacade.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleRound.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleStatistics.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/Battleable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/BattleItem.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/ColorCodedType.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Entity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/EntityFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Interactable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Player.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Bow.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Buildable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/MidnightArmour.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Sceptre.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Shield.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Arrow.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Bomb.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/CollectableEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Key.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Sword.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Treasure/SunStone.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Treasure/Treasure.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Wood.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/InvincibilityPotion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/InvisibilityPotion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/Potion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/PotionFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/PotionType.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Enemy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Mercenary.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/FollowHostileMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/InvincibilityMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/InvisibilityMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/MovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Spider.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/ZombieToast.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/ZombieToastSpawner.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/inventory/Inventory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/inventory/InventoryItem.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/BaseState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/InvincibleState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/InvisibleState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/PlayerState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Boulder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Door.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Exit.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LightBulb.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LogicEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LogicProcessor.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/SwitchDoor.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Portal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/StaticEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Switch.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Wall.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Wire.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/exceptions/InvalidActionException.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/AndGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/BouldersGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/EnemyGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/ExitGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/Goal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/GoalFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/OrGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/TreasureGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GameMap.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GraphNode.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GraphNodeFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/AnimationQueue.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/BattleResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/DungeonResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/EntityResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/GenericResponseWrapper.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/ItemResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/ResponseBuilder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/RoundResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/Direction.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/FileLoader.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/NameConverter.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/Position.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/Environment.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/PlatformUtils.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/Scintilla.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/WebServer.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/App.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/ComparableCallback.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/DungeonManiaController.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/Game.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/GameBuilder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/LogicEnum.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleFacade.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleRound.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/BattleStatistics.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/battles/Battleable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/BattleItem.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/ColorCodedType.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Entity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/EntityFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Interactable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/Player.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Bow.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Buildable.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/MidnightArmour.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Sceptre.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/buildables/Shield.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Arrow.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Bomb.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/CollectableEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Key.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Sword.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Treasure/SunStone.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Treasure/Treasure.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/Wood.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/InvincibilityPotion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/InvisibilityPotion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/Potion.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/PotionFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/collectables/potions/PotionType.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Enemy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Mercenary.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/FollowHostileMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/InvincibilityMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/InvisibilityMovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/MoveStrat/MovementStrategy.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/Spider.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/ZombieToast.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/enemies/ZombieToastSpawner.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/inventory/Inventory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/inventory/InventoryItem.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/BaseState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/InvincibleState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/InvisibleState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/playerState/PlayerState.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Boulder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Door.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Exit.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LightBulb.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LogicEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/LogicProcessor.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/LogicEntities/SwitchDoor.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Portal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/StaticEntity.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Switch.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Wall.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/entities/staticentities/Wire.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/exceptions/InvalidActionException.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/AndGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/BouldersGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/EnemyGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/ExitGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/Goal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/GoalFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/OrGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/goals/TreasureGoal.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GameMap.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GraphNode.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/map/GraphNodeFactory.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/AnimationQueue.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/BattleResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/DungeonResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/EntityResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/GenericResponseWrapper.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/ItemResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/ResponseBuilder.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/response/models/RoundResponse.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/Direction.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/FileLoader.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/NameConverter.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/dungeonmania/util/Position.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/Environment.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/PlatformUtils.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/Scintilla.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/main/java/scintilla/WebServer.java">
+</file>
+</checkstyle>

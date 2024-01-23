@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameMap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment-ii</a> &gt; <a href="index.source.html" class="el_package">dungeonmania.map</a> &gt; <span class="el_source">GameMap.java</span></div><h1>GameMap.java</h1><pre class="source lang-java linenums">package dungeonmania.map;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.stream.Collectors;
+
+import dungeonmania.Game;
+import dungeonmania.entities.Entity;
+import dungeonmania.entities.Player;
+import dungeonmania.entities.staticentities.Portal;
+import dungeonmania.entities.staticentities.Switch;
+import dungeonmania.entities.collectables.Bomb;
+import dungeonmania.entities.enemies.Enemy;
+import dungeonmania.entities.enemies.ZombieToastSpawner;
+import dungeonmania.util.Direction;
+import dungeonmania.util.Position;
+
+<span class="fc" id="L21">public class GameMap {</span>
+    private Game game;
+<span class="fc" id="L23">    private Map&lt;Position, GraphNode&gt; nodes = new HashMap&lt;&gt;();</span>
+    private Player player;
+<span class="fc" id="L25">    private int enemiesKilled = 0;</span>
+
+    /**
+     * Initialise the game map
+     * 1. pair up portals
+     * 2. register all movables
+     * 3. register all spawners
+     * 4. register bombs and switches
+     * 5. more...
+     */
+    public void init() {
+<span class="fc" id="L36">        initPairPortals();</span>
+<span class="fc" id="L37">        initRegisterMovables();</span>
+<span class="fc" id="L38">        initRegisterSpawners();</span>
+<span class="fc" id="L39">        initRegisterBombsAndSwitches();</span>
+<span class="fc" id="L40">    }</span>
+
+    private void initRegisterBombsAndSwitches() {
+<span class="fc" id="L43">        List&lt;Bomb&gt; bombs = getEntities(Bomb.class);</span>
+<span class="fc" id="L44">        List&lt;Switch&gt; switchs = getEntities(Switch.class);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (Bomb b : bombs) {</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            for (Switch s : switchs) {</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                if (Position.isAdjacent(b.getPosition(), s.getPosition())) {</span>
+<span class="fc" id="L48">                    b.subscribe(s);</span>
+<span class="fc" id="L49">                    s.subscribe(b);</span>
+                }
+<span class="fc" id="L51">            }</span>
+<span class="fc" id="L52">        }</span>
+<span class="fc" id="L53">    }</span>
+
+    // Pair up portals if there's any
+    private void initPairPortals() {
+<span class="fc" id="L57">        Map&lt;String, Portal&gt; portalsMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L58">        nodes.forEach((k, v) -&gt; {</span>
+<span class="fc" id="L59">            v.getEntities().stream().filter(Portal.class::isInstance).map(Portal.class::cast).forEach(portal -&gt; {</span>
+<span class="fc" id="L60">                String color = portal.getColor();</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">                if (portalsMap.containsKey(color)) {</span>
+<span class="fc" id="L62">                    portal.bind(portalsMap.get(color));</span>
+                } else {
+<span class="fc" id="L64">                    portalsMap.put(color, portal);</span>
+                }
+<span class="fc" id="L66">            });</span>
+<span class="fc" id="L67">        });</span>
+<span class="fc" id="L68">    }</span>
+
+    private void initRegisterMovables() {
+<span class="fc" id="L71">        List&lt;Enemy&gt; enemies = getEntities(Enemy.class);</span>
+<span class="fc" id="L72">        enemies.forEach(e -&gt; {</span>
+<span class="fc" id="L73">            game.register(() -&gt; e.move(game), Game.AI_MOVEMENT, e.getId());</span>
+<span class="fc" id="L74">        });</span>
+<span class="fc" id="L75">    }</span>
+
+    private void initRegisterSpawners() {
+<span class="fc" id="L78">        List&lt;ZombieToastSpawner&gt; zts = getEntities(ZombieToastSpawner.class);</span>
+<span class="fc" id="L79">        zts.forEach(e -&gt; {</span>
+<span class="fc" id="L80">            game.register(() -&gt; e.spawn(game), Game.AI_MOVEMENT, e.getId());</span>
+<span class="fc" id="L81">        });</span>
+<span class="fc" id="L82">        game.register(() -&gt; game.getEntityFactory().spawnSpider(game), Game.AI_MOVEMENT, &quot;spawnSpiders&quot;);</span>
+<span class="fc" id="L83">    }</span>
+
+    public void moveTo(Entity entity, Position position) {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (!canMoveTo(entity, position))</span>
+<span class="fc" id="L87">            return;</span>
+
+<span class="fc" id="L89">        triggerMovingAwayEvent(entity);</span>
+<span class="fc" id="L90">        removeNode(entity);</span>
+<span class="fc" id="L91">        entity.setPosition(position);</span>
+<span class="fc" id="L92">        addEntity(entity);</span>
+<span class="fc" id="L93">        triggerOverlapEvent(entity);</span>
+<span class="fc" id="L94">    }</span>
+
+    public void moveTo(Entity entity, Direction direction) {
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (!canMoveTo(entity, Position.translateBy(entity.getPosition(), direction)))</span>
+<span class="nc" id="L98">            return;</span>
+<span class="fc" id="L99">        triggerMovingAwayEvent(entity);</span>
+<span class="fc" id="L100">        removeNode(entity);</span>
+
+        // Replace translate funciton
+<span class="fc" id="L103">        entity.setPosition(Position.translateBy(entity.getPosition(), direction));</span>
+
+<span class="fc" id="L105">        addEntity(entity);</span>
+<span class="fc" id="L106">        triggerOverlapEvent(entity);</span>
+<span class="fc" id="L107">    }</span>
+
+    private void triggerMovingAwayEvent(Entity entity) {
+<span class="fc" id="L110">        List&lt;Runnable&gt; callbacks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L111">        getEntities(entity.getPosition()).forEach(e -&gt; {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (e != entity)</span>
+<span class="fc" id="L113">                callbacks.add(() -&gt; e.onMovedAway(this, entity));</span>
+<span class="fc" id="L114">        });</span>
+<span class="fc" id="L115">        callbacks.forEach(callback -&gt; {</span>
+<span class="fc" id="L116">            callback.run();</span>
+<span class="fc" id="L117">        });</span>
+<span class="fc" id="L118">    }</span>
+
+    private void triggerOverlapEvent(Entity entity) {
+<span class="fc" id="L121">        List&lt;Runnable&gt; overlapCallbacks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L122">        getEntities(entity.getPosition()).forEach(e -&gt; {</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            if (e != entity)</span>
+<span class="fc" id="L124">                overlapCallbacks.add(() -&gt; e.onOverlap(this, entity));</span>
+<span class="fc" id="L125">        });</span>
+<span class="fc" id="L126">        overlapCallbacks.forEach(callback -&gt; {</span>
+<span class="fc" id="L127">            callback.run();</span>
+<span class="fc" id="L128">        });</span>
+<span class="fc" id="L129">    }</span>
+
+    public boolean canMoveTo(Entity entity, Position position) {
+<span class="fc bfc" id="L132" title="All 4 branches covered.">        return !nodes.containsKey(position) || nodes.get(position).canMoveOnto(this, entity);</span>
+    }
+
+    public Position dijkstraPathFind(Position src, Position dest, Entity entity) {
+        // if inputs are invalid, don't move
+<span class="pc bpc" id="L137" title="2 of 4 branches missed.">        if (!nodes.containsKey(src) || !nodes.containsKey(dest))</span>
+<span class="nc" id="L138">            return src;</span>
+
+<span class="fc" id="L140">        Map&lt;Position, Integer&gt; dist = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L141">        Map&lt;Position, Position&gt; prev = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L142">        Map&lt;Position, Boolean&gt; visited = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L144">        prev.put(src, null);</span>
+<span class="fc" id="L145">        dist.put(src, 0);</span>
+
+<span class="fc" id="L147">        PriorityQueue&lt;Position&gt; q = new PriorityQueue&lt;&gt;((x, y) -&gt; Integer</span>
+<span class="fc" id="L148">                .compare(dist.getOrDefault(x, Integer.MAX_VALUE), dist.getOrDefault(y, Integer.MAX_VALUE)));</span>
+<span class="fc" id="L149">        q.add(src);</span>
+
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        while (!q.isEmpty()) {</span>
+<span class="fc" id="L152">            Position curr = q.poll();</span>
+<span class="pc bpc" id="L153" title="1 of 4 branches missed.">            if (curr.equals(dest) || dist.get(curr) &gt; 200)</span>
+<span class="nc" id="L154">                break;</span>
+            // check portal
+<span class="fc bfc" id="L156" title="All 4 branches covered.">            if (nodes.containsKey(curr) &amp;&amp; nodes.get(curr).getEntities().stream().anyMatch(Portal.class::isInstance)) {</span>
+<span class="fc" id="L157">                Portal portal = nodes.get(curr).getEntities().stream().filter(Portal.class::isInstance)</span>
+<span class="fc" id="L158">                        .map(Portal.class::cast).collect(Collectors.toList()).get(0);</span>
+<span class="fc" id="L159">                List&lt;Position&gt; teleportDest = portal.getDestPositions(this, entity);</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">                teleportDest.stream().filter(p -&gt; !visited.containsKey(p)).forEach(p -&gt; {</span>
+<span class="fc" id="L161">                    dist.put(p, dist.get(curr));</span>
+<span class="fc" id="L162">                    prev.put(p, prev.get(curr));</span>
+<span class="fc" id="L163">                    q.add(p);</span>
+<span class="fc" id="L164">                });</span>
+<span class="fc" id="L165">                continue;</span>
+            }
+<span class="fc" id="L167">            visited.put(curr, true);</span>
+<span class="fc" id="L168">            List&lt;Position&gt; neighbours = curr.getCardinallyAdjacentPositions().stream()</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                    .filter(p -&gt; !visited.containsKey(p))</span>
+<span class="fc bfc" id="L170" title="All 4 branches covered.">                    .filter(p -&gt; !nodes.containsKey(p) || nodes.get(p).canMoveOnto(this, entity))</span>
+<span class="fc" id="L171">                    .collect(Collectors.toList());</span>
+
+<span class="fc" id="L173">            neighbours.forEach(n -&gt; {</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">                int newDist = dist.get(curr) + (nodes.containsKey(n) ? nodes.get(n).getWeight() : 1);</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">                if (newDist &lt; dist.getOrDefault(n, Integer.MAX_VALUE)) {</span>
+<span class="fc" id="L176">                    q.remove(n);</span>
+<span class="fc" id="L177">                    dist.put(n, newDist);</span>
+<span class="fc" id="L178">                    prev.put(n, curr);</span>
+<span class="fc" id="L179">                    q.add(n);</span>
+                }
+<span class="fc" id="L181">            });</span>
+<span class="fc" id="L182">        }</span>
+<span class="fc" id="L183">        Position ret = dest;</span>
+<span class="pc bpc" id="L184" title="1 of 4 branches missed.">        if (prev.get(ret) == null || ret.equals(src))</span>
+<span class="fc" id="L185">            return src;</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">        while (!prev.get(ret).equals(src)) {</span>
+<span class="fc" id="L187">            ret = prev.get(ret);</span>
+        }
+<span class="fc" id="L189">        return ret;</span>
+    }
+
+    public void removeNode(Entity entity) {
+<span class="fc" id="L193">        Position p = entity.getPosition();</span>
+<span class="pc bpc" id="L194" title="1 of 2 branches missed.">        if (nodes.containsKey(p)) {</span>
+<span class="fc" id="L195">            nodes.get(p).removeEntity(entity);</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">            if (nodes.get(p).size() == 0) {</span>
+<span class="fc" id="L197">                nodes.remove(p);</span>
+            }
+        }
+<span class="fc" id="L200">    }</span>
+
+    public void destroyEntity(Entity entity) {
+<span class="fc bfc" id="L203" title="All 2 branches covered.">        if (entity instanceof Enemy) {</span>
+<span class="fc" id="L204">            enemiesKilled += 1;</span>
+        }
+<span class="fc" id="L206">        removeNode(entity);</span>
+<span class="fc" id="L207">        entity.onDestroy(this);</span>
+<span class="fc" id="L208">    }</span>
+
+    public void addEntity(Entity entity) {
+<span class="fc" id="L211">        addNode(new GraphNode(entity));</span>
+<span class="fc" id="L212">    }</span>
+
+    public void addNode(GraphNode node) {
+<span class="fc" id="L215">        Position p = node.getPosition();</span>
+
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        if (!nodes.containsKey(p))</span>
+<span class="fc" id="L218">            nodes.put(p, node);</span>
+        else {
+<span class="fc" id="L220">            GraphNode curr = nodes.get(p);</span>
+<span class="fc" id="L221">            curr.mergeNode(node);</span>
+<span class="fc" id="L222">            nodes.put(p, curr);</span>
+        }
+<span class="fc" id="L224">    }</span>
+
+    public Entity getEntity(String id) {
+<span class="fc" id="L227">        Entity res = null;</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">        for (Map.Entry&lt;Position, GraphNode&gt; entry : nodes.entrySet()) {</span>
+<span class="fc" id="L229">            List&lt;Entity&gt; es = entry.getValue().getEntities().stream().filter(e -&gt; e.getId().equals(id))</span>
+<span class="fc" id="L230">                    .collect(Collectors.toList());</span>
+<span class="pc bpc" id="L231" title="1 of 4 branches missed.">            if (es != null &amp;&amp; es.size() &gt; 0) {</span>
+<span class="fc" id="L232">                res = es.get(0);</span>
+<span class="fc" id="L233">                break;</span>
+            }
+<span class="fc" id="L235">        }</span>
+<span class="fc" id="L236">        return res;</span>
+    }
+
+    public List&lt;Entity&gt; getEntities(Position p) {
+<span class="fc" id="L240">        GraphNode node = nodes.get(p);</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">        return (node != null) ? node.getEntities() : new ArrayList&lt;&gt;();</span>
+    }
+
+    public List&lt;Entity&gt; getEntities() {
+<span class="fc" id="L245">        List&lt;Entity&gt; entities = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L246">        nodes.forEach((k, v) -&gt; entities.addAll(v.getEntities()));</span>
+<span class="fc" id="L247">        return entities;</span>
+    }
+
+    public &lt;T extends Entity&gt; List&lt;T&gt; getEntities(Class&lt;T&gt; type) {
+<span class="fc" id="L251">        return getEntities().stream().filter(type::isInstance).map(type::cast).collect(Collectors.toList());</span>
+    }
+
+    public Player getPlayer() {
+<span class="fc" id="L255">        return player;</span>
+    }
+
+    public void setPlayer(Player player) {
+<span class="fc" id="L259">        this.player = player;</span>
+<span class="fc" id="L260">    }</span>
+
+    public Game getGame() {
+<span class="fc" id="L263">        return game;</span>
+    }
+
+    public void setGame(Game game) {
+<span class="fc" id="L267">        this.game = game;</span>
+<span class="fc" id="L268">    }</span>
+
+    public int getEnemiesKilled() {
+<span class="fc" id="L271">        return enemiesKilled;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

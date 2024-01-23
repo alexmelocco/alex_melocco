@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dungeonmania.mvp.BuildablesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-08-03T06:59:52" hostname="Alexs-MacBook-Pro-2.local" time="0.084">
+  <properties/>
+  <testcase name="Test building a shield with a key" classname="dungeonmania.mvp.BuildablesTest" time="0.011"/>
+  <testcase name="Test InvalidActionException is raised when the player does not have sufficient items to build a bow or shield" classname="dungeonmania.mvp.BuildablesTest" time="0.011"/>
+  <testcase name="Test building a bow" classname="dungeonmania.mvp.BuildablesTest" time="0.015"/>
+  <testcase name="Test IllegalArgumentException is raised when attempting to build an unknown entity - sword" classname="dungeonmania.mvp.BuildablesTest" time="0.017"/>
+  <testcase name="Test building a shield with treasure" classname="dungeonmania.mvp.BuildablesTest" time="0.016"/>
+  <testcase name="Test responsse buildables parameter is a list of buildables that the player can currently build" classname="dungeonmania.mvp.BuildablesTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 4 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 8 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 7 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 6 ms to scan 2 urls, producing 128 keys and 128 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 153 keys and 153 values
+[Test worker] INFO org.reflections.Reflections - Reflections took 5 ms to scan 2 urls, producing 128 keys and 128 values
+]]></system-err>
+</testsuite>

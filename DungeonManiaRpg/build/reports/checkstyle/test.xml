@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BasicGoalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BattleTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BombTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BouldersTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BuildablesTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/ComplexGoalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/DijkstraMovementTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/DoorsKeysTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/InterfaceTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/MercenaryTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/MovementTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/PortalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/PotionsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/SpiderTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/EnemyGoalTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/LogicBombTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/LogicEntityTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/MidnightArmourTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/SceptreTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/SunStoneTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/TestUtils.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/ZombieTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BasicGoalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BattleTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BombTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BouldersTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/BuildablesTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/ComplexGoalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/DijkstraMovementTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/DoorsKeysTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/InterfaceTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/MercenaryTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/MovementTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/PortalsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/PotionsTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/SpiderTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/EnemyGoalTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/LogicBombTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/LogicEntityTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/MidnightArmourTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/SceptreTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/Task2/SunStoneTest.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/TestUtils.java">
+</file>
+<file name="/Users/alexmelocco/Desktop/melcode/UNSW/2511Code/ass2/assignment-ii/src/test/java/dungeonmania/mvp/ZombieTest.java">
+</file>
+</checkstyle>
