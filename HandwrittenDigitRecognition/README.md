@@ -2,7 +2,7 @@
 
 Implementing a custom handwrittendigit recognition algorithm in python without the use of libaries such as Tensorflow or Pytorch. Numpy is going to be used for vectorization.
 - all (lossfunctions, calculation, derivatives etc) are done manually with no assistance from libraries 
-- Everything is custom - no functions borrowed from external sources (except MNIST data loader and data displayer)
+- Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)
 
 Note: current [juypter notebook](main.ipynb) has a pretrained model loaded if you want to look
 
