@@ -1,0 +1,9 @@
+messageNumber; timestamp; username; message
+
+1; 12 Nov 2023 09:54:30; Alex; hello hello
+
+2; 12 Nov 2023 09:54:40; Alex; lololol
+
+3; 12 Nov 2023 09:55:22; Anna; awassup alex
+
+4; 12 Nov 2023 09:55:37; Anna; hello asdasd
