@@ -5,3 +5,7 @@ Multi-threaded Server/client socket program appliaction which is able to send tc
 Motivations for project - Interested with inner workings of messaging services and socket programming, rather than utilise API’s learn from scratch using socket programming techniques. Intending to create the corresponding front end later on.
 
 Currently implemented within the terminal, future motivations to implement of frontend for this program.
+
+See [Server.py](server.py) and [Client.py](client.py) for the two programs.
+
+Note: all of the other accompanying files are either logs (the server has a logging system) or video files (to test UDP transfer of videO)
