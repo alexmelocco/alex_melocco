@@ -4,6 +4,8 @@ This was a 2 man team project where i wrote the backend of the discord/skype typ
 
 I implemented this using Node.js in the Express.js web sframework. It handles various API endpoints for user authentication, channel management, message handling, and more. The code demonstrates a modular structure, with organized route handlers, middleware usage, and integration with a database for data processing."
 
+See the main server file at [src/server.ts](src/server.ts)
+
 ### Running the server
 
 To run the server, go to root and execute:
