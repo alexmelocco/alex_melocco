@@ -11,8 +11,6 @@ Complete and custom Neural Network library architecture that is modular to any i
 
 Currently, modeled to implement a custom handwritten digit recognition algorithm without the use of libaries such as Tensorflow or Pytorch (purely my own library). Numpy is going to be used for vectorization.
 
-Independently researched and designed a custom, vectorised dense-layer type neural network architecture.
-
 The design is modular, such that the framework can be used to create any neural network, of any size, purpose, layer amount, function type, etc in any aspect. Current implementation trains on the MNIST handwritten digit dataset.
 
 Motivations for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley. This hopefully increases my perception in debugging and all aspects of ML
