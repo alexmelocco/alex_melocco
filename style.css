@@ -115,8 +115,15 @@ nav ul li a:hover::after{
     color: #40E0D0;
 }
 
+
+
 .link-text{
     color: #b445ff;
+    transition: 0.2s;
+}
+
+.link-text:hover{
+    color: #e5beff;
 }
 
 
@@ -301,6 +308,19 @@ nav ul li a:hover::after{
     transition: 0.1s;
 }
 
+/* #proj_title{
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} */
+
+#proj_title {
+    margin-top: 20px;
+    position: relative; /* Changed from absolute to relative */
+}
+
 
 .layer h3{
     font-weight: 500;
@@ -327,6 +347,10 @@ nav ul li a:hover::after{
 
 .work:hover .layer{
     height: 100%;
+}
+
+.work:hover #proj_title{
+    opacity: 0;
 }
 
 .btn{
