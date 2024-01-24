@@ -1,6 +1,8 @@
-# Custom Handwritten Digit Recognition
+# Custom Neural Network Library - Implements Handwritten Digit Recognition
 
-Implementing a custom handwrittendigit recognition algorithm in python without the use of libaries such as Tensorflow or Pytorch. Numpy is going to be used for vectorization.
+Complete and custom Neural Network library architecture that is modular to any input/output specifications. Can be used similar to how TensorFlow Neural Networks are put together (documented). I have implemented a neural network that can recognise handwritten Digits to 97% accuracy. Current architecture only has Dense layers, but future plans to add more layers (convolutional, etc). This has complete modularity so you can add as many hidden layers as needed.
+
+Currently, modeled to implement a custom handwritten digit recognition algorithm without the use of libaries such as Tensorflow or Pytorch (purely my own library). Numpy is going to be used for vectorization.
 - all (lossfunctions, calculation, derivatives etc) are done manually with no assistance from libraries 
 - Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)
 
