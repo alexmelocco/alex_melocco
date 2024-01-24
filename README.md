@@ -18,19 +18,19 @@ Motivations for project - wanted to better understand the underlying operations 
 Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen test examples).
 
 
+
+
+
+## [Typscript browser discord-type messaging service](https://github.com/alexmelocco/alex_melocco/tree/main/Web%20Messaging%20Service)
+
+This was a 2 man team project where i wrote the backend of the discord/skype type messaging program. I was in charge of designing and implementing the backend. Used this applicaton to really focus on the refining my skills in applying design (ACID) principles.
+
+I implemented this using Node.js in the Express.js web sframework. It handles various API endpoints for user authentication, channel management, message handling, and more. The code demonstrates a modular structure, with organized route handlers, middleware usage, and integration with a database for data processing."
+
+
 ## [Lunar Lander Reinforcement Learning Algorithm](https://github.com/alexmelocco/alex_melocco/tree/main/LunarLander)
 
 Deep Q network Algorithm implemented in python using Tensorflow. Uses OpenAI's gym enviornment to train within.
-
-## [Movie reccomendation system - Collaborative Filtering algorithm](https://github.com/alexmelocco/alex_melocco/tree/main/MovieReccomendation)
-
-CURRENTLY IN DEVELOPMENT 
-
-Implementing in Tensorflow. Currently trained on a dataset of 2.6 million training examples.
-
-Current progress can still be viewed in main repo
-
-
 
 
 
@@ -48,17 +48,17 @@ Currently implemented within the terminal, future motivations to implement of fr
 
 
 
-## [Typscript browser discord-type messaging service](https://github.com/alexmelocco/alex_melocco/tree/main/Web%20Messaging%20Service)
-
-This was a 2 man team project where i wrote the backend of the discord/skype type messaging program. I was in charge of designing and implementing the backend. Used this applicaton to really focus on the refining my skills in applying design (ACID) principles.
-
-I implemented this using Node.js in the Express.js web sframework. It handles various API endpoints for user authentication, channel management, message handling, and more. The code demonstrates a modular structure, with organized route handlers, middleware usage, and integration with a database for data processing."
-
-
-
-
-
 
 ## [DungeonMania RPG java game](https://github.com/alexmelocco/alex_melocco/tree/main/DungeonManiaRpg)
 
 This game written in Java is called DungeonMania, implemented using the Spark web framework. It manages user sessions and game-related actions through various API endpoints. The code ensures thread safety for session management, handles exceptions related to invalid actions, and integrates with Scintilla for game loop management. Gson is used for JSON serialization, and the program includes CORS headers for cross-origin support. The init() method sets up routes and initializes dependencies, while the main() method starts the Spark application. Overall, it provides a robust backend for the DungeonMania game with clear organization and functionality.
+
+
+## [Movie reccomendation system - Collaborative Filtering algorithm](https://github.com/alexmelocco/alex_melocco/tree/main/MovieReccomendation)
+
+CURRENTLY IN DEVELOPMENT 
+
+Implementing in Tensorflow. Currently trained on a dataset of 2.6 million training examples.
+
+Current progress can still be viewed in main repo
+
