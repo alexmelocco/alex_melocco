@@ -17,14 +17,19 @@ body{
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url(images/supercompressedenactus-1.jpeg);
+    /* background-image: url(images/supercompressedenactus_with_darker_grey_filter.jpeg); */
+    background-image: url(images/supercompressedenactus_with_grey_filter.jpeg);
     background-size: cover;
     background-position: center;
+    /* background: #0000002e; */
     
     /* position: relative; */
     background-attachment: fixed;
     background-size: cover;
+
+    /* position: relative; */
 }
+
 
 /* 
 #header {
@@ -114,7 +119,9 @@ nav ul li a:hover::after{
 .header-text{
     margin-top: 20%;
     font-size: 25px;
-    color: #40E0D0;
+    color: #ffffff;
+    
+    /* color: #40E0D0; */
 }
 
 .header-text h1{
@@ -134,7 +141,8 @@ nav ul li a:hover::after{
 
 .disclaimer{
     text-decoration: none;
-    color: #40E0D0;
+    color: #ffffff;
+    /* color: #40E0D0; */
 }
 
 
@@ -489,7 +497,7 @@ nav .fa-solid{
 @media only screen and (max-width: 600px){
 /* @media only screen and (max-width: 600px) and (orientation: portrait) { */
     #header{
-        background-image: url(images/phone-background-1.jpg);
+        background-image: url(images/phonebackground_with_grey_filter.jpg);
         background-attachment: fixed;
     }
     .header-text{
