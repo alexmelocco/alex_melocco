@@ -101,6 +101,14 @@ nav ul li a{
     background: #c66fff;
 }
 
+.bloglink{
+    color: #E9B62D;
+}
+
+.bloglink::after{
+    background: #ffd700;
+}
+
 nav ul li a::after{
     content: '';
     width: 0;
@@ -588,3 +596,28 @@ nav .fa-solid{
         background-image: url(images/phone-backgr-hori.jpg);
     } */
 /* } */
+
+
+/* Styling for the blog link */
+.blog-link {
+    color:  #E9B62D; /* Set the text color to yellow */
+    text-decoration: none; /* Remove the underline */
+    font-weight: bold; /* Optional: Makes the text bold for better visibility */
+}
+
+/* Styling for the hover effect */
+.blog-link:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: #ffd700; /* Optional: Add a slightly different yellow hover color */
+}
+
+.text-link {
+    color:  #E9B62D; /* Set the text color to yellow */
+    text-decoration: none; /* Remove the underline */
+}
+
+/* Styling for the hover effect */
+.text-link:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: #ffd700; /* Optional: Add a slightly different yellow hover color */
+}
