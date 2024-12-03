@@ -21,7 +21,7 @@
                     <!-- <li><a href="#about">About me</a></li> -->
                     <!-- <li><a href="#portfolio">Project Portfolio</a></li> -->
                     <!-- <li><a href="#contact">Contact me</a></li> -->
-                    <!-- <li><a href="blog.html" class="bloglink">Research/Project Blog</a></li> -->
+                    <li><a href="blog.html" class="bloglink">Research/Project Blog</a></li>
                     <li><a href="https://github.com/alexmelocco/alex_melocco" class="githublink" target="_blank">Github repo</a></li>
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
@@ -33,8 +33,8 @@
                 <!-- <h1>Hi, I'm<span id="name_animation"></span></h1> -->
 
                 <a class="disclaimer" href="https://github.com/alexmelocco/alex_melocco" target="_blank">
-                    <!-- <h3>See my <span class="link-text">Project Github here</span> or <a href="blog.html" class="blog-link">Project/Research Blog</a></h3> -->
-                    <h3>See my <span class="link-text">Project Github here</span></h3>
+                    <h3>See my <span class="link-text">Project Github here</span> or <a href="blog.html" class="blog-link">Project/Research Blog</a></h3>
+                    <!-- <h3>See my <span class="link-text">Project Github here</span></h3> -->
                 </a>
 
                 <h3>Otherwise, see featured projects below</h3>
@@ -264,7 +264,7 @@
                     </div>
                     <a href="images/alex_melocco/images/Resume Alexander J Melocco.pdf" download class="btn btn2">Download my Resume (PDF)</a>
                 </div>
-                <div class="contact-right">
+                <!-- <div class="contact-right">
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" required>
@@ -272,7 +272,7 @@
                         <button id="colour_button" type="submit" class="btn btn2">Submit</button>
                     </form>
                     <span id="msg"></span>
-                </div>
+                </div> -->
             </div>
             
         </div>
@@ -311,30 +311,7 @@
             menu_bar.style.display = "block";
         }
     </script>
-
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxV-LvDRf4aPHBRPVh1D92R90kdi6oqIQHTVbXMUupDjKHlWN67_E1Evn6vZyDIe6oY/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById("msg")
-        const button = document.getElementById("colour_button")
-        
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          button.style.background="#ae34ff"
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "Thank you for your message"
-                button.style.background="#11ceebe2"
-                setTimeout(function(){
-                    msg.innerHTML = ""
-                },5000)
-                form.reset()
-                button.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-
+    <script src="scripts.js"></script>
     <!-- There is a bug in ios where background-attachment: fixed breaks, idky, but this is a dynamic fix  -->
     <script>
         // Function to check if the user is using an iOS device
@@ -378,6 +355,7 @@
 
     </script>
 
+    
 </body>
 </html>
 
