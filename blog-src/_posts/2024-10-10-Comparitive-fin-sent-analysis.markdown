@@ -19,6 +19,10 @@ categories: jekyll update
 8. [Data Source](#60-data-source)
 9. [Related Work that I took inspiration from](#70-related-work-that-i-took-inspiration-from)
 
+## GitHub Repository
+
+The code and additional resources for this project can be found in my GitHub repository: [Financial Sentiment Analysis Modelling](https://github.com/alexmelocco/alex_melocco/tree/main/FinancialSentimentAnalysisModelling).
+
 ## 1.0 Introduction
 
 The financial market is susceptible to public sentiment, which can significantly influence stock prices and market trends. News headlines are vital information sources that sway investor behaviour. However, the sheer volume of news articles and social media posts generated daily makes it challenging to assess sentiment accurately and promptly manually, highlighting a need for an automated solution to process and analyse vast amounts of textual data quickly and efficiently.
