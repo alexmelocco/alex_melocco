@@ -1,5 +1,7 @@
 # Comparative Analysis of Financial Sentiment Models
 
+Date: 10 October 2024
+
 ## Table of Contents
 
 1. [Introduction](#10-introduction)
