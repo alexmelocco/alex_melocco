@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2024-12-05T15:02:37+11:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Alex Melocco’s Blog</title><subtitle>Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!</subtitle><entry><title type="html">[Research Insights] Comparative Analysis of Financial Sentiment Models</title><link href="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html" rel="alternate" type="text/html" title="[Research Insights] Comparative Analysis of Financial Sentiment Models" /><published>2024-10-10T16:13:45+11:00</published><updated>2024-10-10T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html"><![CDATA[<h1 id="comparative-analysis-of-financial-sentiment-models">Comparative Analysis of Financial Sentiment Models</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2024-12-05T15:20:55+11:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Alex Melocco’s Blog</title><subtitle>Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!</subtitle><entry><title type="html">[Research Insights] Comparative Analysis of Financial Sentiment Models</title><link href="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html" rel="alternate" type="text/html" title="[Research Insights] Comparative Analysis of Financial Sentiment Models" /><published>2024-10-10T16:13:45+11:00</published><updated>2024-10-10T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html"><![CDATA[<h1 id="comparative-analysis-of-financial-sentiment-models">Comparative Analysis of Financial Sentiment Models</h1>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -13,6 +13,10 @@
   <li><a href="#60-data-source">Data Source</a></li>
   <li><a href="#70-related-work-that-i-took-inspiration-from">Related Work that I took inspiration from</a></li>
 </ol>
+
+<h2 id="github-repository">GitHub Repository</h2>
+
+<p>The code and additional resources for this project can be found in my GitHub repository: <a href="https://github.com/alexmelocco/alex_melocco/tree/main/FinancialSentimentAnalysisModelling">Financial Sentiment Analysis Modelling</a>.</p>
 
 <h2 id="10-introduction">1.0 Introduction</h2>
 
@@ -67,10 +71,10 @@
 
 <h2 id="30-methods-used">3.0 Methods Used</h2>
 
-<p>This project utilised an exploration of five alternate methods of addressing financial sentiment classification. This objective was to evaluate the usability, effectivenss and performance of different models in accurately classifying sentiment with financial texts. This was also in the context of data set limitations, where low levels of data were available to train data on (approx. 5000). By leveraging a diverse range of methodologies, I aimed to identify the strengths and weaknesses of each approach in our contextual limitations, thus proving comprehensive insight into the optimal techniques for financial sentiment analysis. The methods included VADER (Valence Aware Dictionary and Sentiment Reasoner), BERT (Bidirectional Encoder Representations from Transformers), Bi-GRU (Bidirectional Gated Recurrent Unit), Text CNN (Convolutional Neural Networks) and LSTM (Long Short-Term Memory), each chosen for their unique structure and application to natural language processing tasks. The following paragraphs outline the
+<p>This project utilised an exploration of five alternate methods of addressing financial sentiment classification. This objective was to evaluate the usability, effectivenss and performance of different models in accurately classifying sentiment with financial texts. This was also in the context of data set limitations, where low levels of data were available to train data on (approx. 5000). By leveraging a diverse range of methodologies, I aimed to identify the strengths and weaknesses of each approach in the contextual limitations, thus proving comprehensive insight into the optimal techniques for financial sentiment analysis. The methods included VADER (Valence Aware Dictionary and Sentiment Reasoner), BERT (Bidirectional Encoder Representations from Transformers), Bi-GRU (Bidirectional Gated Recurrent Unit), Text CNN (Convolutional Neural Networks) and LSTM (Long Short-Term Memory), each chosen for their unique structure and application to natural language processing tasks. The following paragraphs outline the
 efficacy of each model used.</p>
 
-<p>LSTM was employed to capture the sequential dependencies in financial texts, where the ability to retain information over long sequences is particularly beneficial for sentiment analysis, as sentiment is often derived from the context rather than individual words. Our team implemented LSTM through the TensorFlow library, utilizing its recurrent architecture to effectively process and analyse the sentiment of financial statements. To address overfitting, I employed various regularization techniques such as early stopping, extensive dropout layers, and kernel regularization. Data augmentation was also attempted using the NLTK library to create more data through techniques like synonym replacement, deletion, insertion, and back-translation. However, these augmentation techniques often failed to preserve the original sentiment, leading to mixed results. Despite the challenges, a balance was found between regularization techniquesbert</p>
+<p>LSTM was employed to capture the sequential dependencies in financial texts, where the ability to retain information over long sequences is particularly beneficial for sentiment analysis, as sentiment is often derived from the context rather than individual words. the team implemented LSTM through the TensorFlow library, utilizing its recurrent architecture to effectively process and analyse the sentiment of financial statements. To address overfitting, I employed various regularization techniques such as early stopping, extensive dropout layers, and kernel regularization. Data augmentation was also attempted using the NLTK library to create more data through techniques like synonym replacement, deletion, insertion, and back-translation. However, these augmentation techniques often failed to preserve the original sentiment, leading to mixed results. Despite the challenges, a balance was found between regularization techniquesbert</p>
 
 <p>The TextCNN model employs a simple, yet effective architecture designed for sentence classification. The model starts with an embedding layer, where each word in a sentence is represented as a dense vector of fixed size. These embeddings capture semantic information and serve as the input to the convolutional layers. The model uses multiple convolutional layers with different filter sizes to extract various n-gram features from the sentence. Each convolutional layer applies filters that slide over the input embeddings, producing feature maps highlighting important local patterns.Max-pooling layers follow the convolutional layers, selecting the most salient features from each feature map, thus reducing the dimensionality and focusing on the most critical information.</p>
 
@@ -129,9 +133,9 @@ efficacy of each model used.</p>
 
 <h3 id="41-effectiveness-of-selected-model">4.1 Effectiveness of Selected Model</h3>
 
-<p>With an accuracy of 76.5%, we believe the TextCNN model would be effective in a real-world scenario. The model was intentionally trained on the “greater than 50% agreement” data split in order to expose it to as much contentious, real-world data as possible. The model I’ve developed is highly specialized for its domain, and far surpasses general use models like VADER. When comparing it to the results achieved in “<strong>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts</strong>”, which uses the same dataset, I find TextCNN falls short of the 85.8% achieved by the team, approximately a 10% drop in efficacy, possibly resulting from the simpler architecture of TextCNN. However, I still believe that the model is accurate enough to be useful in long-term classifications and trend analysis in the financial space.</p>
+<p>With an accuracy of 76.5%, I believe the TextCNN model would be effective in a real-world scenario. The model was intentionally trained on the “greater than 50% agreement” data split in order to expose it to as much contentious, real-world data as possible. The model I’ve developed is highly specialized for its domain, and far surpasses general use models like VADER. When comparing it to the results achieved in “<strong>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts</strong>”, which uses the same dataset, I find TextCNN falls short of the 85.8% achieved by the team, approximately a 10% drop in efficacy, possibly resulting from the simpler architecture of TextCNN. However, I still believe that the model is accurate enough to be useful in long-term classifications and trend analysis in the financial space.</p>
 
-<p>This conclusion is based on results and should be taken with a grain of salt, with some important considerations that may have dictated our results including:</p>
+<p>This conclusion is based on results and should be taken with a grain of salt, with some important considerations that may have dictated the results including:</p>
 
 <ul>
   <li>Relatively small data set</li>
@@ -143,7 +147,7 @@ efficacy of each model used.</p>
 
 <p>There are a number of paths that I undertook to improve the performance of the model but through difficulty or time constraints were unable to complete. These would be excellent avenues for future research.</p>
 
-<p>The first technique examined was the possibility of augmenting pre-existing data items to generate new ‘virtual’ data items that would still be semantically consistent. I significantly explored this technique, and the code used to generate the virtual items can be found further up this notebook. Our technique involved replacing arbitrary words in sentences with synonyms pulled from a thesaurus dataset. For instance, the sentence fragment “This is great!” might be used to generate the new virtual sentence fragment “This is amazing!”. In this way, a new data item has been generated with the same semantic label of “positive”. However, in practice, I found the synonym replacement was overzealous. In one particular instance, it replaced the sentence fragment “… this sentence is…” with the fragment “…this condemn is…”. While condemn is a valid synonym for sentence, the program’s lack of contextual understanding has created an incorrect sentence. With further work, this technique could produce usable results, but due to time constraints, it was unfortunately shelved.</p>
+<p>The first technique examined was the possibility of augmenting pre-existing data items to generate new ‘virtual’ data items that would still be semantically consistent. I significantly explored this technique, and the code used to generate the virtual items can be found further up this notebook. the technique involved replacing arbitrary words in sentences with synonyms pulled from a thesaurus dataset. For instance, the sentence fragment “This is great!” might be used to generate the new virtual sentence fragment “This is amazing!”. In this way, a new data item has been generated with the same semantic label of “positive”. However, in practice, I found the synonym replacement was overzealous. In one particular instance, it replaced the sentence fragment “… this sentence is…” with the fragment “…this condemn is…”. While condemn is a valid synonym for sentence, the program’s lack of contextual understanding has created an incorrect sentence. With further work, this technique could produce usable results, but due to time constraints, it was unfortunately shelved.</p>
 
 <p>Another technique for future research is ensembling. As the project consists of a number of varying models, ensembling all or some of the models has promise in producing more accurate results. However, owing to the extreme variance in accuracy between models, I reached the conclusion that I couldn’t guarantee the effectiveness of an ensembled approach. This technique could be revisited after more effective models are implemented.</p>
 
@@ -153,7 +157,7 @@ efficacy of each model used.</p>
 
 <h2 id="60-data-source">6.0 Data Source</h2>
 
-<p>The data is sourced from a 2013 study into Semantic Analysis of financial news; <strong>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts</strong>. The dataset is comprised of 4840 English sentences, each associated with a label “positive”, “neutral” or “negative”. The dataset has no explicitly separate test data, so in our model I will use a random selection of 80% of the data for training, 10% for testing and 10% for validation. Hence, our training dataset will comprise of 3872 data entries, and our test and validation sets will consist of 484 data entries each.</p>
+<p>The data is sourced from a 2013 study into Semantic Analysis of financial news; <strong>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts</strong>. The dataset is comprised of 4840 English sentences, each associated with a label “positive”, “neutral” or “negative”. The dataset has no explicitly separate test data, so in the model I will use a random selection of 80% of the data for training, 10% for testing and 10% for validation. Hence, the training dataset will comprise of 3872 data entries, and the test and validation sets will consist of 484 data entries each.</p>
 
 <p>The dataset can be accessed <a href="https://huggingface.co/datasets/takala/financial_phrasebank">here</a>, and the paper from which the dataset originates can be accessed <a href="https://arxiv.org/abs/1307.5336">here</a>.</p>
 
@@ -161,5 +165,81 @@ efficacy of each model used.</p>
 
 <p>Convolutional Neural Networks for Sentence Classification by Kim Yoon (https://aclanthology.org/D14-1181): Kim Yoon’s paper demonstrates the potential of CNNs for sentence classification tasks, highlighting their simplicity and effectiveness. While the model achieves impressive results, it also has limitations related to data dependency, contextual information, and hyperparameter sensitivity. this method will look to be tested on a finance sentiment task.</p>
 
-<p>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts by Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen, Jyrki Wallenius (https://arxiv.org/abs/1307.5336): This paper is the source of our project’s dataset, and examines the use of Linearized Phrase Structure (LSP) in mapping groupings of words to contextual phrases and evaluating this new data, not dissimilar to convolution in image processing. This paper is
-more than a decade old and has been superseded by modern advancements, particularly BERT.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Comparative Analysis of Financial Sentiment Models]]></summary></entry><entry><title type="html">[Project Insights] Writing a Neural Network from scratch using Numpy</title><link href="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html" rel="alternate" type="text/html" title="[Project Insights] Writing a Neural Network from scratch using Numpy" /><published>2024-02-02T16:13:45+11:00</published><updated>2024-02-02T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html"><![CDATA[]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts by Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen, Jyrki Wallenius (https://arxiv.org/abs/1307.5336): This paper is the source of the project’s dataset, and examines the use of Linearized Phrase Structure (LSP) in mapping groupings of words to contextual phrases and evaluating this new data, not dissimilar to convolution in image processing. This paper is
+more than a decade old and has been superseded by modern advancements, particularly BERT.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Comparative Analysis of Financial Sentiment Models]]></summary></entry><entry><title type="html">[Project Insights] Writing a Neural Network from scratch using Numpy</title><link href="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html" rel="alternate" type="text/html" title="[Project Insights] Writing a Neural Network from scratch using Numpy" /><published>2024-02-02T16:13:45+11:00</published><updated>2024-02-02T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html"><![CDATA[<h1 id="custom-neural-network-library---implements-handwritten-digit-recognition">Custom Neural Network Library - Implements Handwritten Digit Recognition</h1>
+
+<p><a href="https://github.com/alexmelocco/alex_melocco/tree/main/HandwrittenDigitRecognition">GitHub Repository</a></p>
+
+<p>Complete and custom Neural Network library architecture that is modular to any input/output specifications. Can be used similar to how TensorFlow Neural Networks are put together (documented). I have implemented a neural network that can recognise handwritten Digits to 97% accuracy. Current architecture only has Dense layers, but future plans to add more layers (convolutional, etc). This has complete modularity so you can add as many hidden layers as needed.</p>
+
+<p>Currently, modeled to implement a custom handwritten digit recognition algorithm without the use of libaries such as Tensorflow or Pytorch (purely my own library). Numpy is going to be used for vectorization.</p>
+
+<ul>
+  <li>all (lossfunctions, calculation, derivatives etc) are done manually with no assistance from libraries</li>
+  <li>Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)</li>
+</ul>
+
+<p>Note: current <a href="main.ipynb">juypter notebook</a> has a pretrained model loaded if you want to look</p>
+
+<p><img src="ProgramSS.png" alt="Program" width="400" /></p>
+
+<p><img src="UML.png" alt="UML Diagram" width="800" /></p>
+
+<p>Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley</p>
+
+<ul>
+  <li>This hopefully increases my perception in debugging and all aspects of ML</li>
+</ul>
+
+<p>Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen examples)</p>
+
+<ul>
+  <li>indicative of good generalisation</li>
+</ul>
+
+<p>Can reload a previously trained model or train a completely new one (up to preference)</p>
+
+<ul>
+  <li>there is a save and reload feature, otherwise it just initilises with random variables (to then be trained)</li>
+</ul>
+
+<p>Main.ipynb currently models digit recognition as per following</p>
+
+<ul>
+  <li>One neural network with three hidden layers
+    <ul>
+      <li>DenseLayer(units=25, act_fun=relu)</li>
+      <li>DenseLayer(units=15, act_fun=relu)</li>
+      <li>DenseLayer(units=10, act_fun=linear)</li>
+    </ul>
+  </li>
+  <li>The reason the final layer is linear and not softmax is to minimise round off error that can occur (softmax conversion occurs after using the linear output)
+    <ul>
+      <li>please note softmax values are used in back propogation (even for linear layer)</li>
+    </ul>
+  </li>
+  <li>loss function is sparse categorical cross entropy
+    <ul>
+      <li>code for this function can be found in /src/loss_functions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>NeuralNetwork class - see UML diagram for function overview/description</p>
+
+<ul>
+  <li>custom, adaptable class (hosts hidden layers)</li>
+  <li>can add as many layers using what ever activation function you want</li>
+  <li>IS NOT HARD CODED FOR DIGIT RECOGNITION - can do virtually anything you can adapt it too</li>
+  <li>in main.ipynb just contains the customisation to work for digit recognition</li>
+</ul>
+
+<p>DenseLayer class - see UML diagram for function overview/description</p>
+
+<ul>
+  <li>initalises its own weigths and biases based on initialisation</li>
+  <li>can reload previously trained models</li>
+  <li>a lot of back_prop and for_prop functionality occurs within this class</li>
+</ul>
+
+<p>Currently main.ipynb initalises a completely new neural network, but at the end of the document is a commented out way to load previously trained network model (if desired)</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Custom Neural Network Library - Implements Handwritten Digit Recognition]]></summary></entry></feed>
