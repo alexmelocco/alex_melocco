@@ -21,7 +21,7 @@
 title: Alex Melocco's Blog
 email: alexjmelocco@gmail.com
 description: >-
-  Alex Melocco's blog that includes descriptions, thought processes and an overall general report about different reports and research projects that are undertaken. This would mostly concern software development, machine learning, startups, etc.
+  Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://alexmelocco.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
