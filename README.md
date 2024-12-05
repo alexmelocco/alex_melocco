@@ -5,7 +5,7 @@ Please find the featured projects listed below. All listed should have a file in
 
 # Projects
 
-## [Financial Sentiment Analysis Modelling Comparison Research Report](https://github.com/alexmelocco/alex_melocco/tree/main/FinancialSentimentAnalysisModelling)
+## [Comparative Analysis of Financial Sentiment Models](https://github.com/alexmelocco/alex_melocco/tree/main/FinancialSentimentAnalysisModelling)
 This research project aims to leverage natural language processing (NLP) techniques and deep learning models to classify the sentiment of financial news headlines into positive, neutral, or negative categories. The study evaluates the effectiveness of various models, including TextCNN, LSTM, Bi-GRU, VADER, and BERT, in real-world financial applications. The research focuses on model performance, robustness, and applicability in the financial sector, providing valuable insights for AI-driven financial sentiment analysis.
 
 The motivation for this project stems from the abundance of research papers covering financial sentiment analysis on extremely large datasets. I aimed to theorize the effectiveness of similar models in a less commercial environment, where access to resources is limited. Smaller datasets, especially with models such as BERT, can significantly affect performance. This research was conducted to address real-world NLP problems that lack access to large datasets, and to provide a comparison between models trained on large versus small datasets, which is crucial for understanding their practical applicability.
