@@ -20,6 +20,9 @@ Financial institutions and investors can significantly benefit from a sentiment 
 
 This report, researched and compiled by Alex Melocco, presents an analysis of different models' performance in financial sentiment analysis. The primary objective is to evaluate and compare the effectiveness of various natural language processing models in classifying financial news into positive, neutral, or negative sentiments. The models examined include TextCNN, LSTM, Bi-GRU, VADER, and BERT. The analysis aims to identify the most suitable model for real-world applications in the financial sector, considering both accuracy and computational efficiency.
 
+### 1.1 Motivations
+The motivation for this project stems from the abundance of research papers covering financial sentiment analysis on extremely large datasets. I aimed to theorize the effectiveness of similar models in a less commercial environment, where access to resources is limited. Smaller datasets, especially with models such as BERT, can significantly affect performance. This research was conducted to address real-world NLP problems that lack access to large datasets, and to provide a comparison between models trained on large versus small datasets, which is crucial for understanding their practical applicability.
+
 ## 2.0 Experimental Setup
 
 The project uses the dataset constructed in the paper Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts. The dataset consists of 4840 English language, each with an associated class of “positive”, “neutral”, or “negative”. Each label was chosen based on the consensus of up to 12 annotators Finland’s Aalto University School of Business. The dataset is then further segmented into subsets based on the number of annotators that agreed with a given label, the splits are presented below:
