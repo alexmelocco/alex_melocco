@@ -17,6 +17,8 @@
         </label>
 
         <div class="trigger">
+          <a class="page-link" href="https://alexmelocco.com">Portfolio</a> <!-- Portfolio link -->
+          <a class="page-link" href="/blog/">Blog</a> <!-- Blog link -->
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
