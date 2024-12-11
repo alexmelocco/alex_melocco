@@ -21,7 +21,7 @@
 title: Alex Melocco's Blog
 email: alexjmelocco@gmail.com
 description: >-
-  Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!
+  Welcome to my blog! I love conducting research, building projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://alexmelocco.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
