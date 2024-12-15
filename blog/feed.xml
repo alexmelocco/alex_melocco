@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2024-12-05T16:32:02+11:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Alex Melocco’s Blog</title><subtitle>Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!</subtitle><entry><title type="html">[Research Insights] Comparative Analysis of Financial Sentiment Models</title><link href="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html" rel="alternate" type="text/html" title="[Research Insights] Comparative Analysis of Financial Sentiment Models" /><published>2024-10-10T16:13:45+11:00</published><updated>2024-10-10T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html"><![CDATA[<h1 id="comparative-analysis-of-financial-sentiment-models">Comparative Analysis of Financial Sentiment Models</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://alexmelocco.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://alexmelocco.com/blog/" rel="alternate" type="text/html" /><updated>2024-12-15T14:26:03+11:00</updated><id>https://alexmelocco.com/blog/feed.xml</id><title type="html">Alex Melocco’s Blog</title><subtitle>Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!</subtitle><entry><title type="html">[Research] Locally deployable NLP Libraries Analysis and scope of application</title><link href="https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html" rel="alternate" type="text/html" title="[Research] Locally deployable NLP Libraries Analysis and scope of application" /><published>2024-12-14T16:13:45+11:00</published><updated>2024-12-14T16:13:45+11:00</updated><id>https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs</id><content type="html" xml:base="https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html"><![CDATA[<h1 id="locally-deployable-nlp-libraries-analysis-and-scope-of-application">Locally deployable NLP Libraries Analysis and scope of application</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ol>
+  <li><a href="#10-introduction">Introduction</a></li>
+  <li><a href="#20-experimental-setup">Experimental Setup</a></li>
+  <li><a href="#30-methods-used">Methods Used</a></li>
+  <li><a href="#40-results-and-discussion">Results and Discussion</a></li>
+  <li><a href="#41-effectiveness-of-selected-model">Effectiveness of Selected Model</a></li>
+  <li><a href="#42-future-research-paths">Future Research Paths</a></li>
+  <li><a href="#50-conclusion">Conclusion</a></li>
+  <li><a href="#60-data-source">Data Source</a></li>
+  <li><a href="#70-related-work-that-i-took-inspiration-from">Related Work that I took inspiration from</a></li>
+</ol>
+
+<h2 id="github-repository">GitHub Repository</h2>
+
+<p>The code and additional resources for this project can be found in my GitHub repository: <a href="https://github.com/alexmelocco/alex_melocco/tree/main/LocallyDeployableNLPLibrariesAnalysis">LocallyDeployableNLPLibrariesAnalysis</a>.</p>
+
+<h2 id="10-introduction">1.0 Introduction</h2>
+
+<p>FULL BLOG COMING SOON</p>
+
+<h3 id="11-motivations">1.1 Motivations</h3>
+
+<h2 id="20-experimental-setup">2.0 Experimental Setup</h2>
+
+<h2 id="30-methods-used">3.0 Methods Used</h2>
+
+<h2 id="40-results-and-discussion">4.0 Results and Discussion</h2>
+
+<h2 id="50-conclusion">5.0 Conclusion</h2>
+
+<h2 id="60-data-source">6.0 Data Source</h2>
+
+<h2 id="70-related-work-that-i-took-inspiration-from">7.0 Related Work that I took inspiration from</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Locally deployable NLP Libraries Analysis and scope of application]]></summary></entry><entry><title type="html">[Research] Comparative Analysis of Financial Sentiment Models</title><link href="https://alexmelocco.com/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html" rel="alternate" type="text/html" title="[Research] Comparative Analysis of Financial Sentiment Models" /><published>2024-10-10T16:13:45+11:00</published><updated>2024-10-10T16:13:45+11:00</updated><id>https://alexmelocco.com/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis</id><content type="html" xml:base="https://alexmelocco.com/blog/jekyll/update/2024/10/10/Comparitive-fin-sent-analysis.html"><![CDATA[<h1 id="comparative-analysis-of-financial-sentiment-models">Comparative Analysis of Financial Sentiment Models</h1>
 
 <h2 id="table-of-contents">Table of Contents</h2>
 
@@ -166,7 +202,7 @@ efficacy of each model used.</p>
 <p>Convolutional Neural Networks for Sentence Classification by Kim Yoon (https://aclanthology.org/D14-1181): Kim Yoon’s paper demonstrates the potential of CNNs for sentence classification tasks, highlighting their simplicity and effectiveness. While the model achieves impressive results, it also has limitations related to data dependency, contextual information, and hyperparameter sensitivity. this method will look to be tested on a finance sentiment task.</p>
 
 <p>Good Debt or Bad Debt: Detecting Semantic Orientations in Economic Texts by Pekka Malo, Ankur Sinha, Pyry Takala, Pekka Korhonen, Jyrki Wallenius (https://arxiv.org/abs/1307.5336): This paper is the source of the project’s dataset, and examines the use of Linearized Phrase Structure (LSP) in mapping groupings of words to contextual phrases and evaluating this new data, not dissimilar to convolution in image processing. This paper is
-more than a decade old and has been superseded by modern advancements, particularly BERT.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Comparative Analysis of Financial Sentiment Models]]></summary></entry><entry><title type="html">[Project Insights] Writing a Neural Network from scratch using Numpy</title><link href="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html" rel="alternate" type="text/html" title="[Project Insights] Writing a Neural Network from scratch using Numpy" /><published>2024-02-02T16:13:45+11:00</published><updated>2024-02-02T16:13:45+11:00</updated><id>http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2024/02/02/Custom-neural-network.html"><![CDATA[<h1 id="custom-neural-network-library---implements-handwritten-digit-recognition">Custom Neural Network Library - Implements Handwritten Digit Recognition</h1>
+more than a decade old and has been superseded by modern advancements, particularly BERT.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Comparative Analysis of Financial Sentiment Models]]></summary></entry><entry><title type="html">[Project] Writing a Neural Network from scratch using Numpy</title><link href="https://alexmelocco.com/blog/jekyll/update/2024/02/02/Custom-neural-network.html" rel="alternate" type="text/html" title="[Project] Writing a Neural Network from scratch using Numpy" /><published>2024-02-02T16:13:45+11:00</published><updated>2024-02-02T16:13:45+11:00</updated><id>https://alexmelocco.com/blog/jekyll/update/2024/02/02/Custom-neural-network</id><content type="html" xml:base="https://alexmelocco.com/blog/jekyll/update/2024/02/02/Custom-neural-network.html"><![CDATA[<h1 id="custom-neural-network-library---implements-handwritten-digit-recognition">Custom Neural Network Library - Implements Handwritten Digit Recognition</h1>
 
 <p><a href="https://github.com/alexmelocco/alex_melocco/tree/main/HandwrittenDigitRecognition">GitHub Repository</a></p>
 
@@ -179,11 +215,13 @@ more than a decade old and has been superseded by modern advancements, particula
   <li>Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)</li>
 </ul>
 
-<p>Note: current <a href="main.ipynb">juypter notebook</a> has a pretrained model loaded if you want to look</p>
+<p>Note: current juypter notebook has a pretrained model loaded if you want to look</p>
 
-<p><img src="ProgramSS.png" alt="Program" width="400" /></p>
+<p><img src="/blog/images/ProgramSS.png" alt="Program" width="400" />
+<img src="/blog/images/UML.png" alt="UML Diagram" />
+<!-- <img src="blog/images/UML.png" alt="UML Diagram" width="800"> --></p>
 
-<p><img src="UML.png" alt="UML Diagram" width="800" /></p>
+<p><img src="/blog/images/UML.png" alt="UML Diagram" /></p>
 
 <p>Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley</p>
 

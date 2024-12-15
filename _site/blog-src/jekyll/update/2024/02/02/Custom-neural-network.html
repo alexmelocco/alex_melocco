@@ -1,0 +1,77 @@
+<h1 id="custom-neural-network-library---implements-handwritten-digit-recognition">Custom Neural Network Library - Implements Handwritten Digit Recognition</h1>
+
+<p><a href="https://github.com/alexmelocco/alex_melocco/tree/main/HandwrittenDigitRecognition">GitHub Repository</a></p>
+
+<p>Complete and custom Neural Network library architecture that is modular to any input/output specifications. Can be used similar to how TensorFlow Neural Networks are put together (documented). I have implemented a neural network that can recognise handwritten Digits to 97% accuracy. Current architecture only has Dense layers, but future plans to add more layers (convolutional, etc). This has complete modularity so you can add as many hidden layers as needed.</p>
+
+<p>Currently, modeled to implement a custom handwritten digit recognition algorithm without the use of libaries such as Tensorflow or Pytorch (purely my own library). Numpy is going to be used for vectorization.</p>
+
+<ul>
+  <li>all (lossfunctions, calculation, derivatives etc) are done manually with no assistance from libraries</li>
+  <li>Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)</li>
+</ul>
+
+<p>Note: current <a href="main.ipynb">juypter notebook</a> has a pretrained model loaded if you want to look</p>
+
+<p><img src="blog-src/images/ProgramSS.png" alt="Program1" width="400" /></p>
+
+<p><img src="UML.png" alt="UML Diagram" width="800" /></p>
+
+<p>Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley</p>
+
+<ul>
+  <li>This hopefully increases my perception in debugging and all aspects of ML</li>
+</ul>
+
+<p>Current model can recognise digits 0-9 (after training has resulted in up to 97.5% accuracy on 10,000 unseen examples)</p>
+
+<ul>
+  <li>indicative of good generalisation</li>
+</ul>
+
+<p>Can reload a previously trained model or train a completely new one (up to preference)</p>
+
+<ul>
+  <li>there is a save and reload feature, otherwise it just initilises with random variables (to then be trained)</li>
+</ul>
+
+<p>Main.ipynb currently models digit recognition as per following</p>
+
+<ul>
+  <li>One neural network with three hidden layers
+    <ul>
+      <li>DenseLayer(units=25, act_fun=relu)</li>
+      <li>DenseLayer(units=15, act_fun=relu)</li>
+      <li>DenseLayer(units=10, act_fun=linear)</li>
+    </ul>
+  </li>
+  <li>The reason the final layer is linear and not softmax is to minimise round off error that can occur (softmax conversion occurs after using the linear output)
+    <ul>
+      <li>please note softmax values are used in back propogation (even for linear layer)</li>
+    </ul>
+  </li>
+  <li>loss function is sparse categorical cross entropy
+    <ul>
+      <li>code for this function can be found in /src/loss_functions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>NeuralNetwork class - see UML diagram for function overview/description</p>
+
+<ul>
+  <li>custom, adaptable class (hosts hidden layers)</li>
+  <li>can add as many layers using what ever activation function you want</li>
+  <li>IS NOT HARD CODED FOR DIGIT RECOGNITION - can do virtually anything you can adapt it too</li>
+  <li>in main.ipynb just contains the customisation to work for digit recognition</li>
+</ul>
+
+<p>DenseLayer class - see UML diagram for function overview/description</p>
+
+<ul>
+  <li>initalises its own weigths and biases based on initialisation</li>
+  <li>can reload previously trained models</li>
+  <li>a lot of back_prop and for_prop functionality occurs within this class</li>
+</ul>
+
+<p>Currently main.ipynb initalises a completely new neural network, but at the end of the document is a commented out way to load previously trained network model (if desired)</p>

@@ -6,6 +6,16 @@
     <title>Alex Melocco's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/b140cc0a55.js" crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLL2Q7EDZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HLL2Q7EDZK');
+    </script>
 </head>
 <body>
 
@@ -21,7 +31,7 @@
                     <!-- <li><a href="#about">About me</a></li> -->
                     <!-- <li><a href="#portfolio">Project Portfolio</a></li> -->
                     <!-- <li><a href="#contact">Contact me</a></li> -->
-                    <li><a href="blog-page.html" class="bloglink">Research/Project Blog</a></li>
+                    <li><a href="/blog/" class="bloglink">Research/Project Blog</a></li>
                     <li><a href="https://github.com/alexmelocco/alex_melocco" class="githublink" target="_blank">Github repo</a></li>
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
@@ -33,7 +43,7 @@
                 <!-- <h1>Hi, I'm<span id="name_animation"></span></h1> -->
 
                 <a class="disclaimer" href="https://github.com/alexmelocco/alex_melocco" target="_blank">
-                    <h3>See my <span class="link-text">Project Github here</span> or <a href="blog-page.html" class="blog-link">Project/Research Blog</a></h3>
+                    <h3>See my <span class="link-text">Project Github here</span> or <a href="/blog/" class="blog-link">Project/Research Blog</a></h3>
                     <!-- <h3>See my <span class="link-text">Project Github here</span></h3> -->
                 </a>
 
@@ -170,6 +180,15 @@
             <p>Click / hover on images for detail</p>
             <div class="work-list">
                 <div class="work">
+                    <img src="images/financialsentscreenshot.png" alt="">
+                    <div class="layer">
+                        <h3>Comparative Analysis of Financial Sentiment Models</h3>
+                        <p>Analysis of various financial sentiment modelling strategies under various contraints such as dataset size.</p>
+                        <a href="https://github.com/alexmelocco/alex_melocco/tree/main/FinancialSentimentAnalysisModelling" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 id="proj_title">Comparative Analysis of Financial Sentiment Models</h3>
+                </div>
+                <div class="work">
                     <img src="images/HDR.png" alt="">
                     <div class="layer">
                         <h3>Custom Neural Network Library</h3>
@@ -198,15 +217,7 @@
                     </div>
                     <h3 id="proj_title">Web Messaging Service</h3>
                 </div>
-                <div class="work">
-                    <img src="images/LunarLander.png" alt="">
-                    <div class="layer">
-                        <h3>Lunar Lander - reinforcement learning network</h3>
-                        <p>Deep Q network Algorithm implemented in python using Tensorflow. Uses OpenAI's gym enviornment to train within.</p>
-                        <a href="https://github.com/alexmelocco/alex_melocco/tree/main/LunarLander" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <h3 id="proj_title">Lunar Lander - reinforcement learning network</h3>
-                </div>
+                
             </div>
             <a href="https://github.com/alexmelocco/alex_melocco" target="_blank" class="btn">See more in my Github Repo</a>
         </div>
@@ -262,7 +273,7 @@
                         <a href="https://www.instagram.com/alexmelocco/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                         
                     </div>
-                    <a href="images/alex_melocco/images/Resume Alexander J Melocco.pdf" download class="btn btn2">Download my Resume (PDF)</a>
+                    <!-- <a href="images/alex_melocco/images/Resume Alexander J Melocco.pdf" download class="btn btn2">Download my Resume (PDF)</a> -->
                 </div>
                 <!-- <div class="contact-right">
                     <form name="submit-to-google-sheet">

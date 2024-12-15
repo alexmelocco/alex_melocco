@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Research Insights] Comparative Analysis of Financial Sentiment Models"
+title: "[Research] Comparative Analysis of Financial Sentiment Models"
 date: 2024-10-10 16:13:45 +1100
 categories: jekyll update
 ---

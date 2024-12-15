@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Research] Locally deployable NLP Libraries Analysis and scope of application | Alex Melocco’s Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="[Research] Locally deployable NLP Libraries Analysis and scope of application" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Locally deployable NLP Libraries Analysis and scope of application" />
+<meta property="og:description" content="Locally deployable NLP Libraries Analysis and scope of application" />
+<link rel="canonical" href="https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html" />
+<meta property="og:url" content="https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html" />
+<meta property="og:site_name" content="Alex Melocco’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-14T16:13:45+11:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Research] Locally deployable NLP Libraries Analysis and scope of application" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-12-14T16:13:45+11:00","datePublished":"2024-12-14T16:13:45+11:00","description":"Locally deployable NLP Libraries Analysis and scope of application","headline":"[Research] Locally deployable NLP Libraries Analysis and scope of application","mainEntityOfPage":{"@type":"WebPage","@id":"https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html"},"url":"https://alexmelocco.com/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://alexmelocco.com/blog/feed.xml" title="Alex Melocco&apos;s Blog" /><!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLL2Q7EDZK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HLL2Q7EDZK');
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Alex Melocco&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Portfolio</a> <!-- Portfolio link -->
+          <a class="page-link" href="/blog/">Blog</a> <!-- Blog link --><a class="page-link" href="/blog/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[Research] Locally deployable NLP Libraries Analysis and scope of application</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-12-14T16:13:45+11:00" itemprop="datePublished">Dec 14, 2024
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="locally-deployable-nlp-libraries-analysis-and-scope-of-application">Locally deployable NLP Libraries Analysis and scope of application</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ol>
+  <li><a href="#10-introduction">Introduction</a></li>
+  <li><a href="#20-experimental-setup">Experimental Setup</a></li>
+  <li><a href="#30-methods-used">Methods Used</a></li>
+  <li><a href="#40-results-and-discussion">Results and Discussion</a></li>
+  <li><a href="#41-effectiveness-of-selected-model">Effectiveness of Selected Model</a></li>
+  <li><a href="#42-future-research-paths">Future Research Paths</a></li>
+  <li><a href="#50-conclusion">Conclusion</a></li>
+  <li><a href="#60-data-source">Data Source</a></li>
+  <li><a href="#70-related-work-that-i-took-inspiration-from">Related Work that I took inspiration from</a></li>
+</ol>
+
+<h2 id="github-repository">GitHub Repository</h2>
+
+<p>The code and additional resources for this project can be found in my GitHub repository: <a href="https://github.com/alexmelocco/alex_melocco/tree/main/LocallyDeployableNLPLibrariesAnalysis">LocallyDeployableNLPLibrariesAnalysis</a>.</p>
+
+<h2 id="10-introduction">1.0 Introduction</h2>
+
+<p>FULL BLOG COMING SOON</p>
+
+<h3 id="11-motivations">1.1 Motivations</h3>
+
+<h2 id="20-experimental-setup">2.0 Experimental Setup</h2>
+
+<h2 id="30-methods-used">3.0 Methods Used</h2>
+
+<h2 id="40-results-and-discussion">4.0 Results and Discussion</h2>
+
+<h2 id="50-conclusion">5.0 Conclusion</h2>
+
+<h2 id="60-data-source">6.0 Data Source</h2>
+
+<h2 id="70-related-work-that-i-took-inspiration-from">7.0 Related Work that I took inspiration from</h2>
+
+  </div><a class="u-url" href="/blog/jekyll/update/2024/12/14/Locally-deployable-NLP-libs.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Alex Melocco&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Alex Melocco&#39;s Blog</li><li><a class="u-email" href="mailto:alexjmelocco@gmail.com">alexjmelocco@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/alexmelocco"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">alexmelocco</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to my blog! I love conducting research, buidling projects and sharing my findings with others. I hope you find my blog posts interesting and informative, and please reach out if you want to contribute or even critique!</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

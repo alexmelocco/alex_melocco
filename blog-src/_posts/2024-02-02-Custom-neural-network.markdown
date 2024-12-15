@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Project Insights] Writing a Neural Network from scratch using Numpy"
+title: "[Project] Writing a Neural Network from scratch using Numpy"
 date: 2024-02-02 16:13:45 +1100
 categories: jekyll update
 ---
@@ -16,11 +16,13 @@ Currently, modeled to implement a custom handwritten digit recognition algorithm
 - all (lossfunctions, calculation, derivatives etc) are done manually with no assistance from libraries
 - Everything is custom - no functions borrowed from external sources (except MNIST data loader and graphing)
 
-Note: current [juypter notebook](main.ipynb) has a pretrained model loaded if you want to look
+Note: current juypter notebook has a pretrained model loaded if you want to look
 
-<img src="ProgramSS.png" alt="Program" width="400">
+<img src="/blog/images/ProgramSS.png" alt="Program" width="400">
+![UML Diagram](/blog/images/UML.png)
+<!-- <img src="blog/images/UML.png" alt="UML Diagram" width="800"> -->
 
-<img src="UML.png" alt="UML Diagram" width="800">
+![UML Diagram](/blog/images/UML.png)
 
 Reason for project - wanted to better understand the underlying operations of a machine learning models, instead of relying on prewritten libraries in tensorflow and pytorch soley
 
